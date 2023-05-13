@@ -7,6 +7,7 @@ using v2rayN.Enums;
 using v2rayN.Handler;
 using v2rayN.Models;
 using v2rayN.Resx;
+using PacLib;
 
 namespace v2rayN.ViewModels
 {
@@ -106,6 +107,13 @@ namespace v2rayN.ViewModels
         [Reactive] public string CoreType6 { get; set; }
 
         #endregion CoreType
+        
+        #region User Pac
+
+        [Reactive] public string userPacDirectDomains { get; set; }
+        [Reactive] public string userPacProxyDomains { get; set; }
+
+        #endregion System proxy
 
         public ReactiveCommand<Unit, Unit> SaveCmd { get; }
 
@@ -196,6 +204,8 @@ namespace v2rayN.ViewModels
             #endregion Tun mode
 
             InitCoreType();
+            
+            InitUserPac();
 
             SaveCmd = ReactiveCommand.Create(() =>
             {
@@ -370,6 +380,8 @@ namespace v2rayN.ViewModels
             {
                 _noticeHandler?.Enqueue(ResUI.OperationFailed);
             }
+            
+            SaveUserPac();
         }
 
         private int SaveCoreType()
@@ -410,6 +422,25 @@ namespace v2rayN.ViewModels
                 item.coreType = (ECoreType)Enum.Parse(typeof(ECoreType), type);
             }
             return 0;
+        }
+        private void InitUserPac()
+        {
+            var userPac = PacHandler.LoadUserPac(Utils.GetConfigPath());
+            if (userPac == "") return;
+
+            userPac = userPac.Replace("            \"", "").Replace("\",", "");
+            var arr = userPac.Split("        ],\n        [\n", StringSplitOptions.RemoveEmptyEntries);
+            userPacDirectDomains = arr[0].Replace("[\n", "");
+            userPacProxyDomains = arr[1].Replace("]", "");
+        }
+
+        private int SaveUserPac()
+        {
+            var result = -1;
+
+            PacHandler.SaveUserPac(userPacDirectDomains, userPacProxyDomains, Utils.GetConfigPath());
+
+            return result;
         }
     }
 }
