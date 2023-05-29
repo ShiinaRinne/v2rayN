@@ -1,3 +1,17 @@
+# Introduction
+This repository is only intended for personal use, and occasionally I may make changes to make it more comfortable for myself. Therefore, I may not frequently update it from the upstream repository and release new versions.
+If you need new features or bug fixes, please use the original project https://github.com/2dust/v2rayN.
+
+## Differences from the original project
+- Custom PAC
+
+  Based on this pull request: https://github.com/2dust/v2rayN/pull/3828, I have made modifications and added a GUI for custom PAC.
+
+  Before using, please delete the original "pac.txt" file in the installation directory "guiConfigs" and replace all files with the ones provided in the release.
+  When using the custom PAC, simply enter the domain names in separate lines without using symbols like ",", "|", or any other separators.
+
+---
+
 # v2rayN
 A GUI client for Windows, support [Xray core](https://github.com/XTLS/Xray-core) and [v2fly core](https://github.com/v2fly/v2ray-core) and [others](https://github.com/2dust/v2rayN/wiki/List-of-supported-cores)
 
