@@ -6,6 +6,7 @@ using System.Windows;
 using v2rayN.Handler;
 using v2rayN.Mode;
 using v2rayN.Resx;
+using PacLib;
 
 namespace v2rayN.ViewModels
 {
@@ -95,6 +96,13 @@ namespace v2rayN.ViewModels
         [Reactive] public string CoreType6 { get; set; }
 
         #endregion CoreType
+        
+        #region User Pac
+
+        [Reactive] public string userPacDirectDomains { get; set; }
+        [Reactive] public string userPacProxyDomains { get; set; }
+
+        #endregion System proxy
 
         public ReactiveCommand<Unit, Unit> SaveCmd { get; }
 
@@ -176,6 +184,8 @@ namespace v2rayN.ViewModels
             #endregion Tun mode
 
             InitCoreType();
+            
+            InitUserPac();
 
             SaveCmd = ReactiveCommand.Create(() =>
             {
@@ -333,6 +343,8 @@ namespace v2rayN.ViewModels
             {
                 UI.ShowWarning(ResUI.OperationFailed);
             }
+            
+            SaveUserPac();
         }
 
         private int SaveCoreType()
@@ -370,6 +382,23 @@ namespace v2rayN.ViewModels
                 item.coreType = (ECoreType)Enum.Parse(typeof(ECoreType), type);
             }
             return 0;
+        }
+        private void InitUserPac()
+        {
+            var userPac = PacHandler.LoadUserPac(Utils.GetConfigPath());
+            if (userPac == null) return;
+
+            userPacDirectDomains = userPac[0].Replace(",", "\r\n");
+            userPacProxyDomains = userPac[1].Replace(",", "\r\n");
+        }
+
+        private int SaveUserPac()
+        {
+            var result = -1;
+
+            PacHandler.SaveUserPac(userPacDirectDomains, userPacProxyDomains, Utils.GetConfigPath());
+
+            return result;
         }
     }
 }

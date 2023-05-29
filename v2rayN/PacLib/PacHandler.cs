@@ -3,6 +3,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace PacLib;
 
@@ -42,6 +43,19 @@ public class PacHandler
         }
 
         _pacText = File.ReadAllText(path).Replace("__PROXY__", $"PROXY 127.0.0.1:{_httpPort};DIRECT;");
+
+        var userPac = LoadUserPac(_configPath);
+        if (userPac != null)
+        {
+            _pacText = _pacText.Replace("__USERPAC_DIRECT__",
+                "\r\n\t\t\t" + string.Join(",\r\n\t\t\t",
+                    userPac[0].Split("\r\n", StringSplitOptions.RemoveEmptyEntries).Select(m => "\"" + m + "\"")) +
+                "\r\n\t\t");
+            _pacText = _pacText.Replace("__USERPAC_PROXY__",
+                "\r\n\t\t\t" + string.Join(",\r\n\t\t\t",
+                    userPac[1].Split("\r\n", StringSplitOptions.RemoveEmptyEntries).Select(m => "\"" + m + "\"")) +
+                "\r\n\t\t");
+        }
     }
 
     private static void RunListener()
@@ -98,5 +112,48 @@ public class PacHandler
             {
             }
         }
+    }
+
+    public static string[]? LoadUserPac(string configPath)
+    {
+        var directUserPac = "";
+        var directUserPacPath = Path.Combine(configPath, "userDirectPac.txt");
+        if (!File.Exists(directUserPacPath))
+        {
+            return null;
+        }
+
+        directUserPac = File.ReadAllText(directUserPacPath);
+
+        var proxyUserPac = "";
+        var proxyUserPacPath = Path.Combine(configPath, "userProxyPac.txt");
+        if (!File.Exists(proxyUserPacPath))
+        {
+            return null;
+        }
+
+        proxyUserPac = File.ReadAllText(proxyUserPacPath);
+
+        return new[] {directUserPac, proxyUserPac};
+    }
+
+    public static void SaveUserPac(string directDomains, string proxyDomains, string configPath)
+    {
+        var directDomainsArray =
+            directDomains.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var proxyDomainsArray =
+            proxyDomains.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+        string directPac = string.Join("\r\n", directDomainsArray.Select(domain => $"{domain}"));
+        string proxyPac = string.Join("\r\n", proxyDomainsArray.Select(domain => $"{domain}"));
+
+        var directPacPath = Path.Combine(configPath, "userDirectPac.txt");
+        File.WriteAllText(directPacPath, directPac);
+
+        var proxyPacPath = Path.Combine(configPath, "userProxyPac.txt");
+        File.WriteAllText(proxyPacPath, proxyPac);
+
+        Stop();
+        RunListener();
     }
 }
