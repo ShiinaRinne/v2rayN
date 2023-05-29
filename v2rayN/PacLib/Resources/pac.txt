@@ -1,8 +1,8 @@
 var proxy = '__PROXY__';
 var rules = [
     [
-        [],
-        []
+        [__USERPAC_DIRECT__],
+        [__USERPAC_PROXY__]
     ],
     [
         [

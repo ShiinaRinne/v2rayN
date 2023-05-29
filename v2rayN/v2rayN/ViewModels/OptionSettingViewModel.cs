@@ -426,12 +426,10 @@ namespace v2rayN.ViewModels
         private void InitUserPac()
         {
             var userPac = PacHandler.LoadUserPac(Utils.GetConfigPath());
-            if (userPac == "") return;
+            if (userPac == null) return;
 
-            userPac = userPac.Replace("            \"", "").Replace("\",", "");
-            var arr = userPac.Split("        ],\n        [\n", StringSplitOptions.RemoveEmptyEntries);
-            userPacDirectDomains = arr[0].Replace("[\n", "");
-            userPacProxyDomains = arr[1].Replace("]", "");
+            userPacDirectDomains = userPac[0].Replace(",", "\r\n");
+            userPacProxyDomains = userPac[1].Replace(",", "\r\n");
         }
 
         private int SaveUserPac()

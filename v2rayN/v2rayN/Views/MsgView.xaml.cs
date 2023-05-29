@@ -52,7 +52,7 @@ namespace v2rayN.Views
             {
                 try
                 {
-                    if (!Regex.IsMatch(msg, MsgFilter)) // 如果不是正则表达式会异常
+                    if (!Regex.IsMatch(msg, MsgFilter)) // 濡傛灉涓嶆槸姝ｅ垯琛ㄨ揪寮忎細寮傚父
                     {
                         return;
                     }
