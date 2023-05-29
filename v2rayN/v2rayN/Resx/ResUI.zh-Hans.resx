@@ -1139,12 +1139,12 @@
     <value>IP 或 IP CIDR</value>
   </data>
   <data name="TbSettingsUserPac" xml:space="preserve">
-    <value>用户Pac设置</value>
+    <value>用户自定义Pac设置</value>
   </data>
   <data name="TbSettingsUserPacDirectDomains" xml:space="preserve">
-    <value>直连的域名（每行一个）：</value>
+    <value>直连的域名（每行一个，无间隔符）：</value>
   </data>
   <data name="TbSettingsUserPacProxyDomains" xml:space="preserve">
-    <value>代理的域名（每行一个）：</value>
+    <value>代理的域名（每行一个，无间隔符）：</value>
   </data>
 </root>

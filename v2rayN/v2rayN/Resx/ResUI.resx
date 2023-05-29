@@ -1142,7 +1142,7 @@
     <value>Domain</value>
   </data>
   <data name="TbSettingsUserPac" xml:space="preserve">
-    <value>User Pac settings</value>
+    <value>User Custom Pac settings</value>
   </data>
   <data name="TbSettingsUserPacDirectDomains" xml:space="preserve">
     <value>Direct domains(One at a line):</value>
