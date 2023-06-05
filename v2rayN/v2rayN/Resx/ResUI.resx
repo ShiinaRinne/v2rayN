@@ -1270,4 +1270,7 @@
   <data name="TbSettingsUserPacProxyDomains" xml:space="preserve">
     <value>Proxy domains(One at a line):</value>
   </data>
+  <data name="MsgUpdatePacRulesSuccessfully" xml:space="preserve">
+    <value>Update PAC Rules successfully</value>
+  </data>
 </root>

@@ -1609,6 +1609,15 @@ namespace v2rayN.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update PAC Rules successfully.
+        /// </summary>
+        public static string MsgUpdatePacRulesSuccessfully {
+            get {
+                return ResourceManager.GetString("MsgUpdatePacRulesSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update subscriptions end.
         /// </summary>
         public static string MsgUpdateSubscriptionEnd {
