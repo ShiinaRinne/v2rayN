@@ -3,12 +3,16 @@ This repository is only intended for personal use, and occasionally I may make c
 If you need new features or bug fixes, please use the original project https://github.com/2dust/v2rayN.
 
 ## Differences from the original project
-- Custom PAC
-
+- Custom PAC in GUI
+  
   Based on this pull request: https://github.com/2dust/v2rayN/pull/3828, I have made modifications and added a GUI for custom PAC.
 
   Before using, please delete the original "pac.txt" file in the installation directory "guiConfigs" and replace all files with the ones provided in the release.
   When using the custom PAC, simply enter the domain names in separate lines without using symbols like ",", "|", or any other separators.
+
+- Check PAC Update
+  
+  Now it supports checking for PAC rule updates from [pac-rules](https://github.com/justreleasepac/pac-rules)
 
 ---
 
