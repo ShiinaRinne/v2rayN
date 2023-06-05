@@ -1054,4 +1054,7 @@
   <data name="TbSettingsEnableHWA" xml:space="preserve">
     <value>Включить аппаратное ускорение (требуется перезагрузка)</value>
   </data>
+  <data name="MsgUpdatePacRulesSuccessfully" xml:space="preserve">
+    <value>Update PAC Rules successfully</value>
+  </data>
 </root>

@@ -1147,4 +1147,7 @@
   <data name="TbSettingsUserPacProxyDomains" xml:space="preserve">
     <value>代理的域名（每行一个，无间隔符）：</value>
   </data>
+  <data name="MsgUpdatePacRulesSuccessfully" xml:space="preserve">
+    <value>更新pac规则成功</value>
+  </data>
 </root>

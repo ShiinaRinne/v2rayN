@@ -292,6 +292,49 @@ namespace v2rayN.Handler
             });
         }
 
+        public async void UpdatePacRule(Config config,  Action<bool, string> update)
+        {
+            _config = config;
+            _updateFunc = update;
+            var url = Global.pacUrl;
+            
+            DownloadHandle downloadHandle = new();
+            downloadHandle.UpdateCompleted += (sender2, args) =>
+            {
+                if (args.Success)
+                {
+                    _updateFunc(false, ResUI.MsgUpdatePacRulesSuccessfully);
+
+                    try
+                    {
+                        string fileName = Utils.GetTempPath(Utils.GetDownloadFileName(url));
+                        if (File.Exists(fileName))
+                        {
+                            string targetPath = Utils.GetConfigPath($"pac.txt");
+                            File.Copy(fileName, targetPath, true);
+
+                            File.Delete(fileName);
+                            //_updateFunc(true, "");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _updateFunc(false, ex.Message);
+                    }
+                }
+                else
+                {
+                    _updateFunc(false, args.Msg);
+                }
+            };
+            downloadHandle.Error += (sender2, args) =>
+            {
+                _updateFunc(false, args.GetException().Message);
+            };
+            await askToDownload(downloadHandle, url, false);
+            
+        }
+
         public void RunAvailabilityCheck(Action<bool, string> update)
         {
             Task.Run(async () =>

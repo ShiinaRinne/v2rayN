@@ -1009,4 +1009,7 @@
   <data name="TbSettingsEnableHWA" xml:space="preserve">
     <value>فعال‌سازی شتاب‌دهنده سخت‌افزاری (نیاز به راه‌اندازی مجدد)</value>
   </data>
+  <data name="MsgUpdatePacRulesSuccessfully" xml:space="preserve">
+    <value>Update PAC Rules successfully</value>
+  </data>
 </root>
