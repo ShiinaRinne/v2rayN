@@ -245,6 +245,11 @@
                                     x:Name="menuCheckUpdateGeo"
                                     Height="{StaticResource MenuItemHeight}"
                                     Header="Geo files" />
+                                <Separator Margin="-40,5" />
+                                <MenuItem
+                                    x:Name="menuCheckUpdatePac"
+                                    Height="{StaticResource MenuItemHeight}"
+                                    Header="PAC rules" />
                             </MenuItem>
                         </Menu>
                         <Separator />

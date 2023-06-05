@@ -97,6 +97,8 @@ namespace v2rayN.ViewModels
         public ReactiveCommand<Unit, Unit> CheckUpdateClashMetaCoreCmd { get; }
         public ReactiveCommand<Unit, Unit> CheckUpdateSingBoxCoreCmd { get; }
         public ReactiveCommand<Unit, Unit> CheckUpdateGeoCmd { get; }
+        public ReactiveCommand<Unit, Unit> CheckUpdatePacCmd { get; }
+
         public ReactiveCommand<Unit, Unit> ReloadCmd { get; }
 
         [Reactive]
@@ -372,6 +374,10 @@ namespace v2rayN.ViewModels
             CheckUpdateGeoCmd = ReactiveCommand.Create(() =>
             {
                 CheckUpdateGeo();
+            });
+            CheckUpdatePacCmd = ReactiveCommand.Create(() =>
+            {
+                CheckUpdatePac();
             });
 
             ReloadCmd = ReactiveCommand.Create(() =>
@@ -900,6 +906,10 @@ namespace v2rayN.ViewModels
         private void CheckUpdateGeo()
         {
             (new UpdateHandle()).UpdateGeoFileAll(_config, UpdateTaskHandler);
+        }
+        private void CheckUpdatePac()
+        {
+            (new UpdateHandle()).UpdatePacRule(_config, UpdateTaskHandler);
         }
 
         #endregion CheckUpdate
