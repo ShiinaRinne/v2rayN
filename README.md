@@ -7,8 +7,9 @@ If you need new features or bug fixes, please use the original project https://g
   
   Based on this pull request: https://github.com/2dust/v2rayN/pull/3828, I have made modifications and added a GUI for custom PAC.
 
-  Before using, please delete the original "pac.txt" file in the installation directory "guiConfigs" and replace all files with the ones provided in the release.
-  When using the custom PAC, simply enter the domain names in separate lines without using symbols like ",", "|", or any other separators.
+  If you overwrite the official/original V2rayN, please use `Check Update -> pac rules`  before starting PAC
+  
+  When using the custom PAC, simply enter the domain in separate lines without using symbols like ",", "|", or any other separators.
 
 - Check PAC Update
   
