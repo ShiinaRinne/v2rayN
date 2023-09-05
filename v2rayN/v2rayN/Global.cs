@@ -22,6 +22,7 @@
         public const string geoUrl = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/{0}.dat";
         public const string singboxGeoUrl = "https://github.com/soffchen/sing-{0}/releases/latest/download/{0}.db";
         public const string SpeedPingTestUrl = @"https://www.google.com/generate_204";
+        public const string juicityCoreUrl = "https://github.com/juicity/juicity/releases";
         public const string CustomRoutingListUrl = @"https://raw.githubusercontent.com/2dust/v2rayCustomRoutingList/master/";
         public const string pacUrl = "https://github.com/justreleasepac/pac-rules/releases/latest/download/pac.txt";
 
@@ -150,7 +151,7 @@
 
         public static readonly List<string> allowInsecures = new() { "true", "false", "" };
         public static readonly List<string> domainStrategy4Freedoms = new() { "AsIs", "UseIP", "UseIPv4", "UseIPv6", "" };
-        public static readonly List<string> Languages = new() { "zh-Hans", "en", "fa-Ir", "ru" };
+        public static readonly List<string> Languages = new() { "zh-Hans", "zh-Hant", "en", "fa-Ir", "ru" };
         public static readonly List<string> alpns = new() { "h2", "http/1.1", "h2,http/1.1", "" };
         public static readonly List<string> LogLevel = new() { "debug", "info", "warning", "error", "none" };
         public static readonly List<string> InboundTags = new() { "socks", "http", "socks2", "http2" };

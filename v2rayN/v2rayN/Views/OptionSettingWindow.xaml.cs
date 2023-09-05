@@ -18,6 +18,17 @@ namespace v2rayN.Views
         public OptionSettingWindow()
         {
             InitializeComponent();
+
+            // 设置窗口的尺寸不大于屏幕的尺寸
+            if (this.Width > SystemParameters.WorkArea.Width)
+            {
+                this.Width = SystemParameters.WorkArea.Width;
+            }
+            if (this.Height > SystemParameters.WorkArea.Height)
+            {
+                this.Height = SystemParameters.WorkArea.Height;
+            }
+
             this.Owner = Application.Current.MainWindow;
             _config = LazyConfig.Instance.GetConfig();
 
@@ -44,10 +55,6 @@ namespace v2rayN.Views
                 cmbmux4SboxProtocol.Items.Add(it);
             });
 
-            for (int i = 1; i <= 10; i++)
-            {
-                cmbStatisticsFreshRate.Items.Add(i);
-            }
             Global.TunMtus.ForEach(it =>
             {
                 cmbMtu.Items.Add(it);
@@ -150,7 +157,6 @@ namespace v2rayN.Views
 
                 this.Bind(ViewModel, vm => vm.AutoRun, v => v.togAutoRun.IsChecked).DisposeWith(disposables);
                 this.Bind(ViewModel, vm => vm.EnableStatistics, v => v.togEnableStatistics.IsChecked).DisposeWith(disposables);
-                this.Bind(ViewModel, vm => vm.StatisticsFreshRate, v => v.cmbStatisticsFreshRate.Text).DisposeWith(disposables);
                 this.Bind(ViewModel, vm => vm.KeepOlderDedupl, v => v.togKeepOlderDedupl.IsChecked).DisposeWith(disposables);
                 this.Bind(ViewModel, vm => vm.IgnoreGeoUpdateCore, v => v.togIgnoreGeoUpdateCore.IsChecked).DisposeWith(disposables);
                 this.Bind(ViewModel, vm => vm.EnableAutoAdjustMainLvColWidth, v => v.togEnableAutoAdjustMainLvColWidth.IsChecked).DisposeWith(disposables);

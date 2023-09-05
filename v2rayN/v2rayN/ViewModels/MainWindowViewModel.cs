@@ -168,8 +168,8 @@ namespace v2rayN.ViewModels
         [Reactive]
         public ImageSource AppIcon { get; set; }
 
-        [Reactive]
-        public bool BlShowTrayTip { get; set; }
+        //[Reactive]
+        //public bool BlShowTrayTip { get; set; }
 
         #endregion Menu
 
@@ -211,8 +211,8 @@ namespace v2rayN.ViewModels
         [Reactive]
         public string RunningServerDisplay { get; set; }
 
-        [Reactive]
-        public string RunningServerToolTipText { get; set; }
+        //[Reactive]
+        //public string RunningServerToolTipText { get; set; }
 
         [Reactive]
         public string RunningInfoDisplay { get; set; }
@@ -854,12 +854,12 @@ namespace v2rayN.ViewModels
                 {
                     var runningSummary = running.GetSummary();
                     RunningServerDisplay = $"{ResUI.menuServers}:{runningSummary}";
-                    RunningServerToolTipText = runningSummary;
+                    //RunningServerToolTipText = runningSummary;
                 }
                 else
                 {
-                    RunningServerDisplay =
-                    RunningServerToolTipText = ResUI.CheckServerSettings;
+                    RunningServerDisplay = ResUI.CheckServerSettings;
+                    //RunningServerToolTipText = ResUI.CheckServerSettings;
                 }
             }));
         }
@@ -1538,7 +1538,7 @@ namespace v2rayN.ViewModels
         private void ChangeSystemProxyStatus(ESysProxyType type, bool blChange)
         {
             SysProxyHandle.UpdateSysProxy(_config, _config.tunModeItem.enableTun ? true : false);
-            _noticeHandler?.SendMessage(ResUI.TipChangeSystemProxy, true);
+            _noticeHandler?.SendMessage(ResUI.TipChangeSystemProxy + _config.sysProxyType.ToString(), true);
 
             Application.Current.Dispatcher.Invoke((Action)(() =>
             {
@@ -1695,7 +1695,7 @@ namespace v2rayN.ViewModels
             }
             CurrentFontSize = _config.uiItem.currentFontSize;
             CurrentLanguage = _config.uiItem.currentLanguage;
-            BlShowTrayTip = _config.uiItem.showTrayTip;
+            //BlShowTrayTip = _config.uiItem.showTrayTip;
 
             this.WhenAnyValue(
                   x => x.ColorModeDark,

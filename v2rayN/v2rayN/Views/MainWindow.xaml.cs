@@ -25,6 +25,17 @@ namespace v2rayN.Views
         public MainWindow()
         {
             InitializeComponent();
+
+            // 设置窗口的尺寸不大于屏幕的尺寸
+            if (this.Width > SystemParameters.WorkArea.Width)
+            {
+                this.Width = SystemParameters.WorkArea.Width;
+            }
+            if (this.Height > SystemParameters.WorkArea.Height)
+            {
+                this.Height = SystemParameters.WorkArea.Height;
+            }
+
             _config = LazyConfig.Instance.GetConfig();
 
             App.Current.SessionEnding += Current_SessionEnding;
@@ -164,10 +175,10 @@ namespace v2rayN.Views
                 this.BindCommand(ViewModel, vm => vm.SubUpdateViaProxyCmd, v => v.menuSubUpdateViaProxy2).DisposeWith(disposables);
 
                 this.OneWayBind(ViewModel, vm => vm.NotifyIcon, v => v.tbNotify.Icon).DisposeWith(disposables);
-                this.OneWayBind(ViewModel, vm => vm.RunningServerToolTipText, v => v.tbNotify.ToolTipText).DisposeWith(disposables);
+                //this.OneWayBind(ViewModel, vm => vm.RunningServerToolTipText, v => v.tbNotify.ToolTipText).DisposeWith(disposables);
                 this.OneWayBind(ViewModel, vm => vm.NotifyLeftClickCmd, v => v.tbNotify.LeftClickCommand).DisposeWith(disposables);
                 this.OneWayBind(ViewModel, vm => vm.AppIcon, v => v.Icon).DisposeWith(disposables);
-                this.OneWayBind(ViewModel, vm => vm.BlShowTrayTip, v => v.borTrayToolTip.Visibility).DisposeWith(disposables);
+                //this.OneWayBind(ViewModel, vm => vm.BlShowTrayTip, v => v.borTrayToolTip.Visibility).DisposeWith(disposables);
 
                 //status bar
                 this.OneWayBind(ViewModel, vm => vm.InboundDisplay, v => v.txtInboundDisplay.Text).DisposeWith(disposables);
@@ -520,10 +531,14 @@ namespace v2rayN.Views
             var coreInfos = LazyConfig.Instance.GetCoreInfos();
             foreach (var it in coreInfos)
             {
+                if (it.coreType == ECoreType.v2fly)
+                {
+                    continue;
+                }
                 var item = new MenuItem()
                 {
                     Tag = it.coreUrl.Replace(@"/releases", ""),
-                    Header = string.Format(Resx.ResUI.menuWebsiteItem, it.coreType.ToString().Replace("_", " "))
+                    Header = string.Format(Resx.ResUI.menuWebsiteItem, it.coreType.ToString().Replace("_", " ")).UpperFirstChar()
                 };
                 item.Click += MenuItem_Click;
                 menuHelp.Items.Add(item);

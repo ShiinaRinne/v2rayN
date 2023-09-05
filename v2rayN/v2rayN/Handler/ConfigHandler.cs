@@ -140,7 +140,6 @@ namespace v2rayN.Handler
                 config.guiItem = new()
                 {
                     enableStatistics = false,
-                    statisticsFreshRate = 1,
                 };
             }
             if (config.uiItem == null)
@@ -183,11 +182,6 @@ namespace v2rayN.Handler
             if (Utils.IsNullOrEmpty(config.speedTestItem.speedPingTestUrl))
             {
                 config.speedTestItem.speedPingTestUrl = Global.SpeedPingTestUrl;
-            }
-
-            if (config.guiItem.statisticsFreshRate is > 100 or < 1)
-            {
-                config.guiItem.statisticsFreshRate = 1;
             }
 
             if (config.mux4Sbox == null)
@@ -331,7 +325,6 @@ namespace v2rayN.Handler
                 config.guiItem = new()
                 {
                     enableStatistics = configOld.enableStatistics,
-                    statisticsFreshRate = configOld.statisticsFreshRate,
                     keepOlderDedupl = configOld.keepOlderDedupl,
                     ignoreGeoUpdateCore = configOld.ignoreGeoUpdateCore,
                     autoUpdateInterval = configOld.autoUpdateInterval,
@@ -373,6 +366,10 @@ namespace v2rayN.Handler
             profileItem.streamSecurity = profileItem.streamSecurity.TrimEx();
 
             if (!Global.vmessSecuritys.Contains(profileItem.security))
+            {
+                return -1;
+            }
+            if (profileItem.id.IsNullOrEmpty())
             {
                 return -1;
             }
@@ -597,7 +594,7 @@ namespace v2rayN.Handler
             profileItem.configType = EConfigType.Custom;
             if (Utils.IsNullOrEmpty(profileItem.remarks))
             {
-                profileItem.remarks = $"import custom@{DateTime.Now.ToShortDateString()}";
+                profileItem.remarks = $"import custom@{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}";
             }
 
             AddServerCommon(ref config, profileItem, true);
@@ -643,6 +640,10 @@ namespace v2rayN.Handler
             {
                 return -1;
             }
+            if (profileItem.id.IsNullOrEmpty())
+            {
+                return -1;
+            }
 
             AddServerCommon(ref config, profileItem, toFile);
 
@@ -681,6 +682,10 @@ namespace v2rayN.Handler
             if (Utils.IsNullOrEmpty(profileItem.streamSecurity))
             {
                 profileItem.streamSecurity = Global.StreamSecurity;
+            }
+            if (profileItem.id.IsNullOrEmpty())
+            {
+                return -1;
             }
 
             AddServerCommon(ref config, profileItem, toFile);
@@ -806,6 +811,10 @@ namespace v2rayN.Handler
             if (!Global.flows.Contains(profileItem.flow))
             {
                 profileItem.flow = Global.flows.First();
+            }
+            if (profileItem.id.IsNullOrEmpty())
+            {
+                return -1;
             }
 
             AddServerCommon(ref config, profileItem, toFile);
@@ -1034,7 +1043,7 @@ namespace v2rayN.Handler
                     addStatus = AddVlessServer(ref config, profileItem, false);
                 }
 
-                if (addStatus == 0 && profileItem.port > 0)
+                if (addStatus == 0)
                 {
                     countServers++;
                     lstAdd.Add(profileItem);

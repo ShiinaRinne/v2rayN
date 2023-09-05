@@ -118,70 +118,70 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BatchExportSubscriptionSuccessfully" xml:space="preserve">
-    <value>批量导出订阅内容至剪贴板成功</value>
+    <value>批量導出訂閲内容至剪貼板成功</value>
   </data>
   <data name="BatchExportURLSuccessfully" xml:space="preserve">
-    <value>批量导出分享URL至剪贴板成功</value>
+    <value>批量導出分享URL至剪貼板成功</value>
   </data>
   <data name="CheckServerSettings" xml:space="preserve">
-    <value>请先检查服务器设置</value>
+    <value>請先檢查服務器設置</value>
   </data>
   <data name="ConfigurationFormatIncorrect" xml:space="preserve">
-    <value>配置格式不正确</value>
+    <value>配置格式不正確</value>
   </data>
   <data name="CustomServerTips" xml:space="preserve">
-    <value>注意,自定义配置完全依赖您自己的配置，不能使用所有设置功能。如需使用系统代理请手动修改监听端口。</value>
+    <value>注意,自定義配置完全依賴您自己的配置，不能使用所有設置功能。如需使用系統代理請手動修改監聽端口。</value>
   </data>
   <data name="Downloading" xml:space="preserve">
-    <value>下载开始...</value>
+    <value>下載開始...</value>
   </data>
   <data name="downloadSpeed" xml:space="preserve">
-    <value>下载</value>
+    <value>下載</value>
   </data>
   <data name="DownloadYesNo" xml:space="preserve">
-    <value>是否下载? {0}</value>
+    <value>是否下載? {0}</value>
   </data>
   <data name="FailedConversionConfiguration" xml:space="preserve">
-    <value>转换配置文件失败</value>
+    <value>轉換配置文件失敗</value>
   </data>
   <data name="FailedGenDefaultConfiguration" xml:space="preserve">
-    <value>生成默认配置文件失败</value>
+    <value>生成默認配置文件失敗</value>
   </data>
   <data name="FailedGetDefaultConfiguration" xml:space="preserve">
-    <value>获取默认配置失败</value>
+    <value>獲取默認配置失敗</value>
   </data>
   <data name="FailedImportedCustomServer" xml:space="preserve">
-    <value>导入自定义配置服务器失败</value>
+    <value>導入自定義配置服務器失敗</value>
   </data>
   <data name="FailedReadConfiguration" xml:space="preserve">
-    <value>读取配置文件失败</value>
+    <value>讀取配置文件失敗</value>
   </data>
   <data name="FillCorrectServerPort" xml:space="preserve">
-    <value>请填写正确格式服务器端口</value>
+    <value>请填寫正確格式服務器端口</value>
   </data>
   <data name="FillKcpParameters" xml:space="preserve">
-    <value>请正确填写KCP参数</value>
+    <value>请正確填寫KCP參數</value>
   </data>
   <data name="FillLocalListeningPort" xml:space="preserve">
-    <value>请填写本地监听端口</value>
+    <value>请填寫本地監聽端口</value>
   </data>
   <data name="FillPassword" xml:space="preserve">
-    <value>请填写密码</value>
+    <value>请填寫密码</value>
   </data>
   <data name="FillServerAddress" xml:space="preserve">
-    <value>请填写服务器地址</value>
+    <value>请填寫服務器地址</value>
   </data>
   <data name="FillUUID" xml:space="preserve">
-    <value>请填写用户ID</value>
+    <value>请填寫用戶ID</value>
   </data>
   <data name="IncorrectClientConfiguration" xml:space="preserve">
-    <value>不是正确的客户端配置文件，请检查</value>
+    <value>不是正確的客戶端配置文件，请檢查</value>
   </data>
   <data name="Incorrectconfiguration" xml:space="preserve">
-    <value>不是正确的配置，请检查</value>
+    <value>不是正確的配置，请檢查</value>
   </data>
   <data name="IncorrectServerConfiguration" xml:space="preserve">
-    <value>不是正确的服务端配置文件，请检查</value>
+    <value>不是正確的服務端配置文件，请檢查</value>
   </data>
   <data name="InitialConfiguration" xml:space="preserve">
     <value>初始化配置</value>
@@ -205,125 +205,124 @@
     <value>类型</value>
   </data>
   <data name="LvSubscription" xml:space="preserve">
-    <value>订阅分组</value>
+    <value>訂閲分組</value>
   </data>
   <data name="LvTodayDownloadDataAmount" xml:space="preserve">
-    <value>今日下载</value>
+    <value>今日下載</value>
   </data>
   <data name="LvTodayUploadDataAmount" xml:space="preserve">
-    <value>今日上传</value>
+    <value>今日上傳</value>
   </data>
   <data name="LvTotalDownloadDataAmount" xml:space="preserve">
-    <value>总下载</value>
+    <value>縂下載</value>
   </data>
   <data name="LvTotalUploadDataAmount" xml:space="preserve">
-    <value>总上传</value>
+    <value>縂上傳</value>
   </data>
   <data name="LvTransportProtocol" xml:space="preserve">
-    <value>传输协议</value>
+    <value>傳輸協議</value>
   </data>
   <data name="MsgClearSubscription" xml:space="preserve">
-    <value>清除原订阅内容</value>
+    <value>清除原訂閲内容</value>
   </data>
   <data name="MsgDownloadV2rayCoreSuccessfully" xml:space="preserve">
-    <value>下载Core成功</value>
+    <value>下載Core成功</value>
   </data>
   <data name="MsgFailedImportSubscription" xml:space="preserve">
-    <value>导入订阅内容失败</value>
+    <value>導入訂閲内容失敗</value>
   </data>
   <data name="MsgGetSubscriptionSuccessfully" xml:space="preserve">
-    <value>获取订阅内容成功</value>
+    <value>獲取訂閲内容成功</value>
   </data>
   <data name="MsgNoValidSubscription" xml:space="preserve">
-    <value>未设置有效的订阅</value>
+    <value>未設置有效的訂閲</value>
   </data>
   <data name="MsgParsingSuccessfully" xml:space="preserve">
     <value>解析{0}成功</value>
   </data>
   <data name="MsgStartGettingSubscriptions" xml:space="preserve">
-    <value>开始获取订阅内容</value>
+    <value>開始獲取訂閲内容</value>
   </data>
   <data name="MsgStartUpdating" xml:space="preserve">
-    <value>开始更新 {0}...</value>
+    <value>開始更新 {0}...</value>
   </data>
   <data name="MsgSubscriptionDecodingFailed" xml:space="preserve">
-    <value>无效的订阅内容</value>
+    <value>無效的訂閲内容</value>
   </data>
   <data name="MsgUnpacking" xml:space="preserve">
-    <value>正在解压......</value>
+    <value>正在解壓......</value>
   </data>
   <data name="MsgUpdateSubscriptionEnd" xml:space="preserve">
-    <value>更新订阅结束</value>
+    <value>更新訂閲結束</value>
   </data>
   <data name="MsgUpdateSubscriptionStart" xml:space="preserve">
-    <value>更新订阅开始</value>
+    <value>更新訂閲開始</value>
   </data>
   <data name="MsgUpdateV2rayCoreSuccessfully" xml:space="preserve">
     <value>更新Core成功</value>
   </data>
   <data name="MsgUpdateV2rayCoreSuccessfullyMore" xml:space="preserve">
-    <value>更新Core成功！正在重启服务...</value>
+    <value>更新Core成功！正在重啓服務...</value>
   </data>
   <data name="NonvmessOrssProtocol" xml:space="preserve">
-    <value>非VMess或ss协议</value>
+    <value>非VMess或ss協議</value>
   </data>
   <data name="NonVmessService" xml:space="preserve">
-    <value>非标准服务，此功能无效</value>
+    <value>非標準服務，此功能無效</value>
   </data>
   <data name="NotFoundCore" xml:space="preserve">
-    <value>在文件夹 ({0}) 下未找到Core文件 (文件名:{1})，请下载后放入文件夹，下载地址: {2}</value>
+    <value>在文件夾 ({0}) 下未找到Core文件 (文件名:{1})，请下載后放入文件夾、，下載地址: {2}</value>
   </data>
   <data name="NoValidQRcodeFound" xml:space="preserve">
-    <value>扫描完成,未发现有效二维码</value>
+    <value>掃描完成,未發現有效二維碼</value>
   </data>
   <data name="OperationFailed" xml:space="preserve">
-    <value>操作失败，请检查重试</value>
+    <value>操作失敗，请檢查重试</value>
   </data>
   <data name="PleaseFillRemarks" xml:space="preserve">
-    <value>请填写别名</value>
+    <value>请填寫别名</value>
   </data>
   <data name="PleaseSelectEncryption" xml:space="preserve">
-    <value>请选择加密方式</value>
+    <value>请選擇加密方式</value>
   </data>
   <data name="PleaseSelectProtocol" xml:space="preserve">
-    <value>请选择协议</value>
+    <value>请選擇協議</value>
   </data>
   <data name="PleaseSelectServer" xml:space="preserve">
-    <value>请先选择服务器</value>
+    <value>请先選擇服務器</value>
   </data>
   <data name="RemoveDuplicateServerResult" xml:space="preserve">
-    <value>服务器去重完成。原数量: {0}，现数量: {1}</value>
+    <value>服務器去重完成。原數量: {0}，现數量: {1}</value>
   </data>
   <data name="RemoveServer" xml:space="preserve">
-    <value>是否确定移除服务器?</value>
+    <value>是否確定移除服務器?</value>
   </data>
   <data name="SaveClientConfigurationIn" xml:space="preserve">
-    <value>客户端配置文件保存在:{0}</value>
+    <value>客戶端配置文件保存在:{0}</value>
   </data>
   <data name="StartService" xml:space="preserve">
-    <value>启动服务({0})...</value>
+    <value>啓動服務({0})...</value>
   </data>
   <data name="SuccessfulConfiguration" xml:space="preserve">
-    <value>配置成功
-{0}</value>
+    <value>配置成功{0}</value>
   </data>
   <data name="SuccessfullyImportedCustomServer" xml:space="preserve">
-    <value>成功导入自定义配置服务器</value>
+    <value>成功導入自定義配置服務器</value>
   </data>
   <data name="SuccessfullyImportedServerViaClipboard" xml:space="preserve">
-    <value>成功从剪贴板导入 {0} 个服务器</value>
+    <value>成功从剪贴板導入 {0} 个服務器</value>
   </data>
   <data name="SuccessfullyImportedServerViaScan" xml:space="preserve">
-    <value>扫描导入URL成功</value>
+    <value>掃描導入URL成功</value>
   </data>
   <data name="TestMeOutput" xml:space="preserve">
-    <value>当前服务的真连接延迟: {0} ms</value>
+    <value>當前服務的真連接延遲: {0} ms</value>
   </data>
   <data name="OperationSuccess" xml:space="preserve">
     <value>操作成功</value>
   </data>
   <data name="PleaseSelectRules" xml:space="preserve">
-    <value>请先选择规则</value>
+    <value>请先選擇规则</value>
   </data>
   <data name="RemoveRules" xml:space="preserve">
     <value>是否确定移除规则?</value>
@@ -338,25 +337,25 @@
     <value>可选地址(Url)</value>
   </data>
   <data name="LvCount" xml:space="preserve">
-    <value>数量</value>
+    <value>數量</value>
   </data>
   <data name="MsgNeedUrl" xml:space="preserve">
-    <value>请填写Url</value>
+    <value>请填寫Url</value>
   </data>
   <data name="AddBatchRoutingRulesYesNo" xml:space="preserve">
-    <value>是否追加规则?选择是则追加,选择否则替换</value>
+    <value>是否追加规则?選擇是则追加,選擇否则替换</value>
   </data>
   <data name="MsgDownloadGeoFileSuccessfully" xml:space="preserve">
-    <value>下载 GeoFile: {0} 成功</value>
+    <value>下載 GeoFile: {0} 成功</value>
   </data>
   <data name="MsgInformationTitle" xml:space="preserve">
     <value>信息</value>
   </data>
   <data name="LvCustomIcon" xml:space="preserve">
-    <value>自定义图标</value>
+    <value>自定義图标</value>
   </data>
   <data name="FillCorrectDNSText" xml:space="preserve">
-    <value>请填写正确的自定义DNS</value>
+    <value>请填寫正確的自定義DNS</value>
   </data>
   <data name="TransportPathTip1" xml:space="preserve">
     <value>*ws path</value>
@@ -401,19 +400,19 @@
     <value>*Kcp seed</value>
   </data>
   <data name="RegisterGlobalHotkeyFailed" xml:space="preserve">
-    <value>注册全局热键 {0} 失败,原因 {1}</value>
+    <value>注册全局热键 {0} 失敗,原因 {1}</value>
   </data>
   <data name="RegisterGlobalHotkeySuccessfully" xml:space="preserve">
     <value>注册全局热键 {0} 成功</value>
   </data>
   <data name="UngroupedServers" xml:space="preserve">
-    <value>未分组服务器</value>
+    <value>未分組服務器</value>
   </data>
   <data name="AllGroupServers" xml:space="preserve">
     <value>所有</value>
   </data>
   <data name="FillServerAddressCustom" xml:space="preserve">
-    <value>请浏览导入服务器配置</value>
+    <value>请浏览導入服務器配置</value>
   </data>
   <data name="SystemProxy" xml:space="preserve">
     <value>系统代理</value>
@@ -422,7 +421,7 @@
     <value>测试中...</value>
   </data>
   <data name="TooManyServersTip" xml:space="preserve">
-    <value>服务器太多，请打开主界面操作</value>
+    <value>服務器太多，请打开主界面操作</value>
   </data>
   <data name="LabLAN" xml:space="preserve">
     <value>局域网</value>
@@ -431,10 +430,10 @@
     <value>本地</value>
   </data>
   <data name="MsgServerTitle" xml:space="preserve">
-    <value>服务器过滤器，按回车执行</value>
+    <value>服務器过滤器，按回车执行</value>
   </data>
   <data name="menuCheckUpdate" xml:space="preserve">
-    <value>检查更新</value>
+    <value>檢查更新</value>
   </data>
   <data name="menuClose" xml:space="preserve">
     <value>关闭</value>
@@ -443,46 +442,46 @@
     <value>退出</value>
   </data>
   <data name="menuGlobalHotkeySetting" xml:space="preserve">
-    <value>全局热键设置</value>
+    <value>全局热键設置</value>
   </data>
   <data name="menuHelp" xml:space="preserve">
     <value>帮助</value>
   </data>
   <data name="menuOptionSetting" xml:space="preserve">
-    <value>参数设置</value>
+    <value>參數設置</value>
   </data>
   <data name="menuPromotion" xml:space="preserve">
     <value>推广</value>
   </data>
   <data name="menuReload" xml:space="preserve">
-    <value>重启服务</value>
+    <value>重啓服務</value>
   </data>
   <data name="menuRoutingSetting" xml:space="preserve">
-    <value>路由设置</value>
+    <value>路由設置</value>
   </data>
   <data name="menuServers" xml:space="preserve">
-    <value>服务器</value>
+    <value>服務器</value>
   </data>
   <data name="menuSetting" xml:space="preserve">
-    <value>设置</value>
+    <value>設置</value>
   </data>
   <data name="menuSubGroupUpdate" xml:space="preserve">
-    <value>更新当前订阅(不通过代理)</value>
+    <value>更新當前訂閲(不通过代理)</value>
   </data>
   <data name="menuSubGroupUpdateViaProxy" xml:space="preserve">
-    <value>更新当前订阅(通过代理)</value>
+    <value>更新當前訂閲(通过代理)</value>
   </data>
   <data name="menuSubscription" xml:space="preserve">
-    <value>订阅分组</value>
+    <value>訂閲分組</value>
   </data>
   <data name="menuSubSetting" xml:space="preserve">
-    <value>订阅分组设置</value>
+    <value>訂閲分組設置</value>
   </data>
   <data name="menuSubUpdate" xml:space="preserve">
-    <value>更新全部订阅(不通过代理)</value>
+    <value>更新全部訂閲(不通过代理)</value>
   </data>
   <data name="menuSubUpdateViaProxy" xml:space="preserve">
-    <value>更新全部订阅(通过代理)</value>
+    <value>更新全部訂閲(通过代理)</value>
   </data>
   <data name="menuSystemproxy" xml:space="preserve">
     <value>系统代理</value>
@@ -509,73 +508,73 @@
     <value>是否跟随系统主题</value>
   </data>
   <data name="TbSettingsLanguage" xml:space="preserve">
-    <value>语言(重启)</value>
+    <value>语言(重啓)</value>
   </data>
   <data name="menuAddServerViaClipboard" xml:space="preserve">
-    <value>从剪贴板导入批量URL (Ctrl+V)</value>
+    <value>从剪贴板導入批量URL (Ctrl+V)</value>
   </data>
   <data name="menuAddServerViaScan" xml:space="preserve">
-    <value>扫描屏幕上的二维码 (Ctrl+S)</value>
+    <value>掃描屏幕上的二维码 (Ctrl+S)</value>
   </data>
   <data name="menuCopyServer" xml:space="preserve">
-    <value>克隆所选服务器</value>
+    <value>克隆所选服務器</value>
   </data>
   <data name="menuRemoveDuplicateServer" xml:space="preserve">
-    <value>移除重复的服务器</value>
+    <value>移除重复的服務器</value>
   </data>
   <data name="menuRemoveServer" xml:space="preserve">
-    <value>移除所选服务器(多选) (Delete)</value>
+    <value>移除所选服務器(多选) (Delete)</value>
   </data>
   <data name="menuSetDefaultServer" xml:space="preserve">
-    <value>设为活动服务器 (Enter)</value>
+    <value>设为活动服務器 (Enter)</value>
   </data>
   <data name="menuClearServerStatistics" xml:space="preserve">
-    <value>清除所有服务统计数据</value>
+    <value>清除所有服務统计数据</value>
   </data>
   <data name="menuPingServer" xml:space="preserve">
-    <value>测试服务器延迟Ping(多选) (Ctrl+P)</value>
+    <value>测试服務器延遲Ping(多选) (Ctrl+P)</value>
   </data>
   <data name="menuRealPingServer" xml:space="preserve">
-    <value>测试服务器真连接延迟(多选) (Ctrl+R)</value>
+    <value>测试服務器真連接延遲(多选) (Ctrl+R)</value>
   </data>
   <data name="menuSortServerResult" xml:space="preserve">
     <value>按测试结果排序</value>
   </data>
   <data name="menuSpeedServer" xml:space="preserve">
-    <value>测试服务器速度(多选) (Ctrl+T)</value>
+    <value>测试服務器速度(多选) (Ctrl+T)</value>
   </data>
   <data name="menuTcpingServer" xml:space="preserve">
-    <value>测试服务器延迟Tcping(多选) (Ctrl+O)</value>
+    <value>测试服務器延遲Tcping(多选) (Ctrl+O)</value>
   </data>
   <data name="menuTestMe" xml:space="preserve">
-    <value>测试当前服务状态</value>
+    <value>测试當前服務状态</value>
   </data>
   <data name="menuExport2ClientConfig" xml:space="preserve">
-    <value>导出所选服务器为客户端配置</value>
+    <value>导出所选服務器为客戶端配置</value>
   </data>
   <data name="menuExport2ShareUrl" xml:space="preserve">
     <value>批量导出分享URL至剪贴板(多选) (Ctrl+C)</value>
   </data>
   <data name="menuExport2SubContent" xml:space="preserve">
-    <value>批量导出订阅内容至剪贴板(多选)</value>
+    <value>批量导出訂閲内容至剪贴板(多选)</value>
   </data>
   <data name="menuAddCustomServer" xml:space="preserve">
-    <value>添加自定义配置服务器</value>
+    <value>添加自定義配置服務器</value>
   </data>
   <data name="menuAddShadowsocksServer" xml:space="preserve">
-    <value>添加[Shadowsocks]服务器</value>
+    <value>添加[Shadowsocks]服務器</value>
   </data>
   <data name="menuAddSocksServer" xml:space="preserve">
-    <value>添加[Socks]服务器</value>
+    <value>添加[Socks]服務器</value>
   </data>
   <data name="menuAddTrojanServer" xml:space="preserve">
-    <value>添加[Trojan]服务器</value>
+    <value>添加[Trojan]服務器</value>
   </data>
   <data name="menuAddVlessServer" xml:space="preserve">
-    <value>添加[VLESS]服务器</value>
+    <value>添加[VLESS]服務器</value>
   </data>
   <data name="menuAddVmessServer" xml:space="preserve">
-    <value>添加[VMess]服务器</value>
+    <value>添加[VMess]服務器</value>
   </data>
   <data name="menuSelectAll" xml:space="preserve">
     <value>全选 (Ctrl+A)</value>
@@ -590,7 +589,7 @@
     <value>复制所有</value>
   </data>
   <data name="menuMsgViewFilter" xml:space="preserve">
-    <value>设置信息过滤器</value>
+    <value>設置信息过滤器</value>
   </data>
   <data name="menuMsgViewSelectAll" xml:space="preserve">
     <value>全选 (Ctrl+A)</value>
@@ -623,7 +622,7 @@
     <value>确定</value>
   </data>
   <data name="GbTransport" xml:space="preserve">
-    <value>底层传输方式(transport)</value>
+    <value>底层傳輸方式(transport)</value>
   </data>
   <data name="TbAddress" xml:space="preserve">
     <value>地址(address)</value>
@@ -647,7 +646,7 @@
     <value>用户ID(id)</value>
   </data>
   <data name="TbNetwork" xml:space="preserve">
-    <value>传输协议(network)</value>
+    <value>傳輸協議(network)</value>
   </data>
   <data name="TbPath" xml:space="preserve">
     <value>路径(path)</value>
@@ -668,10 +667,10 @@
     <value>SNI</value>
   </data>
   <data name="TbStreamSecurity" xml:space="preserve">
-    <value>传输层安全(TLS)</value>
+    <value>傳輸层安全(TLS)</value>
   </data>
   <data name="TipNetwork" xml:space="preserve">
-    <value>*默认tcp,选错会无法连接</value>
+    <value>*默认tcp,选错会无法連接</value>
   </data>
   <data name="TbCoreType" xml:space="preserve">
     <value>Core类型</value>
@@ -704,151 +703,152 @@
     <value>Socks端口</value>
   </data>
   <data name="TipPreSocksPort" xml:space="preserve">
-    <value>* 自定义配置的Socks端口值，可不设置；当设置此值后，将使用sing-box额外启动一个前置Socks服务，提供分流和速度显示等功能</value>
+    <value>* 自定義配置的Socks端口值，可不設置；當設置此值后，将使用sing-box额外啓動一个前置Socks服務，提供分流和速度顯示等功能</value>
   </data>
+  <!--********************************************-->
   <data name="TbBrowse" xml:space="preserve">
-    <value>浏览</value>
+    <value>瀏覽</value>
   </data>
   <data name="TbEdit" xml:space="preserve">
-    <value>编辑</value>
+    <value>編輯</value>
   </data>
   <data name="TbSettingsAdvancedProtocol" xml:space="preserve">
-    <value>高级代理设置, 协议选择(可选)</value>
+    <value>高級代理設置, 協議選擇(可選)</value>
   </data>
   <data name="TbSettingsAllowLAN" xml:space="preserve">
-    <value>允许来自局域网的连接</value>
+    <value>允許來自局域網的連接</value>
   </data>
   <data name="TbSettingsAutoHideStartup" xml:space="preserve">
-    <value>启动后隐藏窗口</value>
+    <value>啓動後隱藏窗口</value>
   </data>
   <data name="TbSettingsAutoUpdateInterval" xml:space="preserve">
-    <value>自动更新Geo文件的间隔(单位小时)</value>
+    <value>自動更新Geo文件的間隔(單位小時)</value>
   </data>
   <data name="TbSettingsCore" xml:space="preserve">
-    <value>Core: 基础设置</value>
+    <value>Core: 基礎設置</value>
   </data>
   <data name="TbSettingsCoreDns" xml:space="preserve">
-    <value>V2ray DNS设置</value>
+    <value>V2ray DNS設置</value>
   </data>
   <data name="TbSettingsCoreKcp" xml:space="preserve">
-    <value>Core: KCP设置</value>
+    <value>Core: KCP設置</value>
   </data>
   <data name="TbSettingsCoreType" xml:space="preserve">
-    <value>Core类型设置</value>
+    <value>Core類型設置</value>
   </data>
   <data name="TbSettingsDefAllowInsecure" xml:space="preserve">
-    <value>默认跳过证书验证(allowInsecure)</value>
+    <value>默認跳過證書驗證(allowInsecure)</value>
   </data>
   <data name="TbSettingsDomainStrategy4Freedom" xml:space="preserve">
     <value>Outbound Freedom domainStrategy</value>
   </data>
   <data name="TbSettingsEnableAutoAdjustMainLvColWidth" xml:space="preserve">
-    <value>自动调整服务器列宽在更新订阅后</value>
+    <value>自動調整服務器列寬在更新訂閲后</value>
   </data>
   <data name="TbSettingsEnableCheckPreReleaseUpdate" xml:space="preserve">
-    <value>检查Pre-Release更新(请谨慎启用)</value>
+    <value>檢查Pre-Release更新(請謹慎啓用)</value>
   </data>
   <data name="TbSettingsException" xml:space="preserve">
     <value>例外</value>
   </data>
   <data name="TbSettingsExceptionTip" xml:space="preserve">
-    <value>例外. 对于下列字符开头的地址不使用代理配置文件:使用分号(;)分隔</value>
+    <value>例外. 對於下列字符開頭的地址不使用代理配置文件:使用分號(;)分隔</value>
   </data>
   <data name="TbSettingsHttpPort" xml:space="preserve">
-    <value>本地http监听端口</value>
+    <value>本地http監聽端口</value>
   </data>
   <data name="TbSettingsIgnoreGeoUpdateCore" xml:space="preserve">
-    <value>更新Core时忽略Geo文件</value>
+    <value>更新Core時忽略Geo文件</value>
   </data>
   <data name="TbSettingsKeepOlderDedupl" xml:space="preserve">
-    <value>去重时保留序号较小的项</value>
+    <value>去重時保留序號較小的項</value>
   </data>
   <data name="TbSettingsLogEnabled" xml:space="preserve">
-    <value>启用日志</value>
+    <value>啓用日志</value>
   </data>
   <data name="TbSettingsLogLevel" xml:space="preserve">
-    <value>日志等级</value>
+    <value>日志等級</value>
   </data>
   <data name="TbSettingsMuxEnabled" xml:space="preserve">
-    <value>开启Mux多路复用</value>
+    <value>開啓Mux多路復用</value>
   </data>
   <data name="TbSettingsN" xml:space="preserve">
-    <value>v2rayN 设置</value>
+    <value>v2rayN 設置</value>
   </data>
   <data name="TbSettingsPass" xml:space="preserve">
-    <value>认证密码</value>
+    <value>認證密碼</value>
   </data>
   <data name="TbSettingsRemoteDNS" xml:space="preserve">
-    <value>自定义DNS(可多个,用逗号(,)分隔)</value>
+    <value>自定義DNS(可多個,用逗號(,)分隔)</value>
   </data>
   <data name="TbSettingsSetUWP" xml:space="preserve">
-    <value>解除Win10 UWP应用回环代理限制</value>
+    <value>解除Win10 UWP應用回環代理限制</value>
   </data>
   <data name="TbSettingsSniffingEnabled" xml:space="preserve">
-    <value>开启流量探测</value>
+    <value>開啓流量探測</value>
   </data>
   <data name="TbSettingsSocksPort" xml:space="preserve">
-    <value>本地socks监听端口</value>
+    <value>本地socks監聽端口</value>
   </data>
   <data name="TbSettingsStartBoot" xml:space="preserve">
-    <value>开机启动(可能会不成功)</value>
+    <value>開機啓動(可能會不成功)</value>
   </data>
   <data name="TbSettingsStatistics" xml:space="preserve">
-    <value>启用统计(实时网速显示，需重启)</value>
+    <value>啓用統計(實時網速顯示，需重啓)</value>
   </data>
   <data name="TbSettingsSubConvert" xml:space="preserve">
-    <value>订阅转换网址(可选)</value>
+    <value>訂閲轉換網址(可選)</value>
   </data>
   <data name="TbSettingsSystemproxy" xml:space="preserve">
-    <value>系统代理设置</value>
+    <value>系統代理設置</value>
   </data>
   <data name="TbSettingsTLS13" xml:space="preserve">
-    <value>启用安全协议TLS v1.3 (订阅/检查更新)</value>
+    <value>啓用安全協議TLS v1.3 (訂閲/檢查更新)</value>
   </data>
   <data name="TbSettingsTrayMenuServersLimit" xml:space="preserve">
-    <value>托盘右键菜单服务器展示数量限制</value>
+    <value>托盤右鍵菜單服務器展示數量限制</value>
   </data>
   <data name="TbSettingsUdpEnabled" xml:space="preserve">
-    <value>开启UDP</value>
+    <value>開啓UDP</value>
   </data>
   <data name="TbSettingsUser" xml:space="preserve">
-    <value>认证用户名</value>
+    <value>認證用戶名</value>
   </data>
   <data name="TbClearSystemProxy" xml:space="preserve">
-    <value>清除系统代理</value>
+    <value>清除系統代理</value>
   </data>
   <data name="TbDisplayGUI" xml:space="preserve">
-    <value>显示主界面</value>
+    <value>顯示主界面</value>
   </data>
   <data name="TbGlobalHotkeySetting" xml:space="preserve">
-    <value>全局热键设置</value>
+    <value>全局熱鍵設置</value>
   </data>
   <data name="TbGlobalHotkeySettingTip" xml:space="preserve">
-    <value>直接按键盘进行设置, 重启后生效</value>
+    <value>直接按鍵盤進行設置, 重啓後生效</value>
   </data>
   <data name="TbNotChangeSystemProxy" xml:space="preserve">
-    <value>不改变系统代理</value>
+    <value>不改變系統代理</value>
   </data>
   <data name="TbReset" xml:space="preserve">
     <value>重置</value>
   </data>
   <data name="TbSetSystemProxy" xml:space="preserve">
-    <value>自动配置系统代理</value>
+    <value>自動配置系統代理</value>
   </data>
   <data name="TbSystemProxyPac" xml:space="preserve">
     <value>Pac模式</value>
   </data>
   <data name="menuShareServer" xml:space="preserve">
-    <value>分享服务器 (Ctrl+F)</value>
+    <value>分享服務器 (Ctrl+F)</value>
   </data>
   <data name="menuRouting" xml:space="preserve">
     <value>路由</value>
   </data>
   <data name="NotRunAsAdmin" xml:space="preserve">
-    <value>以非管理员身份运行</value>
+    <value>以非管理員身份運行</value>
   </data>
   <data name="RunAsAdmin" xml:space="preserve">
-    <value>以管理员身份运行</value>
+    <value>以管理員身份運行</value>
   </data>
   <data name="menuMoveBottom" xml:space="preserve">
     <value>下移至底 (B)</value>
@@ -857,37 +857,37 @@
     <value>下移 (D)</value>
   </data>
   <data name="menuMoveTop" xml:space="preserve">
-    <value>上移至顶 (T)</value>
+    <value>上移至頂 (T)</value>
   </data>
   <data name="menuMoveUp" xml:space="preserve">
     <value>上移 (U)</value>
   </data>
   <data name="MsgFilterTitle" xml:space="preserve">
-    <value>过滤器, 支持正则</value>
+    <value>過濾器, 支持正則</value>
   </data>
   <data name="menuWebsiteItem" xml:space="preserve">
-    <value>{0} 官网</value>
+    <value>{0} 官網</value>
   </data>
   <data name="menuRoutingAdvanced" xml:space="preserve">
     <value>高级功能</value>
   </data>
   <data name="menuRoutingAdvancedAdd" xml:space="preserve">
-    <value>添加规则集</value>
+    <value>添加規則集</value>
   </data>
   <data name="menuRoutingAdvancedImportRules" xml:space="preserve">
-    <value>一键导入高级规则</value>
+    <value>一鍵導入高級規則</value>
   </data>
   <data name="menuRoutingAdvancedRemove" xml:space="preserve">
-    <value>移除所选规则 (Delete)</value>
+    <value>移除所選規則 (Delete)</value>
   </data>
   <data name="menuRoutingAdvancedSetDefault" xml:space="preserve">
-    <value>设为活动规则 (Enter)</value>
+    <value>設爲活動規則 (Enter)</value>
   </data>
   <data name="menuRoutingBasic" xml:space="preserve">
-    <value>基础功能</value>
+    <value>基礎功能</value>
   </data>
   <data name="menuRoutingBasicImportRules" xml:space="preserve">
-    <value>一键导入基础规则</value>
+    <value>一鍵導入基礎規則</value>
   </data>
   <data name="TbdomainMatcher" xml:space="preserve">
     <value>域名匹配算法</value>
@@ -896,175 +896,175 @@
     <value>域名解析策略</value>
   </data>
   <data name="TbenableRoutingAdvanced" xml:space="preserve">
-    <value>启用高级功能</value>
+    <value>啓動高級功能</value>
   </data>
   <data name="TbRoutingTabBlock" xml:space="preserve">
     <value>3.阻止的Domain或IP</value>
   </data>
   <data name="TbRoutingTabDirect" xml:space="preserve">
-    <value>2.直连的Domain或IP</value>
+    <value>2.直連的Domain或IP</value>
   </data>
   <data name="TbRoutingTabProxy" xml:space="preserve">
     <value>1.代理的Domain或IP</value>
   </data>
   <data name="TbRoutingTabRuleList" xml:space="preserve">
-    <value>预定义规则集列表</value>
+    <value>預定義規則集列表</value>
   </data>
   <data name="TbRoutingTips" xml:space="preserve">
-    <value>*设置的路由规则,用逗号(,)分隔;正则中的逗号用&lt;COMMA&gt;替代</value>
+    <value>*設置的路由規則,用逗號(,)分隔;正則中的逗號用&lt;COMMA&gt;替代</value>
   </data>
   <data name="menuImportRulesFromClipboard" xml:space="preserve">
-    <value>从剪贴板中导入规则</value>
+    <value>從剪貼板中導入規則</value>
   </data>
   <data name="menuImportRulesFromFile" xml:space="preserve">
-    <value>从文件中导入规则</value>
+    <value>從文件中導入規則</value>
   </data>
   <data name="menuImportRulesFromUrl" xml:space="preserve">
-    <value>从订阅Url中导入规则</value>
+    <value>從訂閲Url中導入規則</value>
   </data>
   <data name="menuRoutingRuleSetting" xml:space="preserve">
-    <value>规则集设置</value>
+    <value>規則集設置</value>
   </data>
   <data name="menuRuleAdd" xml:space="preserve">
-    <value>添加规则</value>
+    <value>添加規則</value>
   </data>
   <data name="menuRuleExportSelected" xml:space="preserve">
-    <value>导出所选规则至剪贴板</value>
+    <value>到處所選規則至剪貼板</value>
   </data>
   <data name="menuRuleList" xml:space="preserve">
-    <value>规则列表</value>
+    <value>規則列表</value>
   </data>
   <data name="menuRuleRemove" xml:space="preserve">
-    <value>移除所选规则 (Delete)</value>
+    <value>移除所選規則 (Delete)</value>
   </data>
   <data name="menuRoutingRuleDetailsSetting" xml:space="preserve">
-    <value>路由规则详情设置</value>
+    <value>路由規則詳情設置</value>
   </data>
   <data name="TbAutoSort" xml:space="preserve">
-    <value>保存时Domain, IP, 进程名 自动排序</value>
+    <value>保存時Domain, IP, 進程名 自動排序</value>
   </data>
   <data name="TbRuleobjectDoc" xml:space="preserve">
-    <value>规则详细说明文档</value>
+    <value>規則詳細説明文檔</value>
   </data>
   <data name="TbDnsObjectDoc" xml:space="preserve">
-    <value>支持填写DnsObject,JSON格式，点击查看文档</value>
+    <value>支持填寫DnsObject,JSON格式，點擊查看文檔</value>
   </data>
   <data name="SubUrlTips" xml:space="preserve">
-    <value>普通分组此处请留空</value>
+    <value>普通分組此處請留空</value>
   </data>
   <data name="TipChangeRouting" xml:space="preserve">
-    <value>路由设置改变</value>
+    <value>路由設置改變</value>
   </data>
   <data name="TipChangeSystemProxy" xml:space="preserve">
-    <value>系统代理设置改变</value>
+    <value>系統代理設置改變</value>
   </data>
   <data name="TbSettingsRouteOnly" xml:space="preserve">
     <value>RouteOnly</value>
   </data>
   <data name="menuMixedTestServer" xml:space="preserve">
-    <value>一键多线程测试延迟和速度 (Ctrl+E)</value>
+    <value>一鍵多綫程測試延遲和速度 (Ctrl+E)</value>
   </data>
   <data name="LvTestDelay" xml:space="preserve">
-    <value>延迟(ms)</value>
+    <value>延遲(ms)</value>
   </data>
   <data name="LvTestSpeed" xml:space="preserve">
     <value>速度(M/s)</value>
   </data>
   <data name="FailedToRunCore" xml:space="preserve">
-    <value>运行Core失败，请看日志</value>
+    <value>運行Core失敗，請看日志</value>
   </data>
   <data name="LvFilter" xml:space="preserve">
-    <value>别名正则过滤</value>
+    <value>別名正則過濾</value>
   </data>
   <data name="TbDisplayLog" xml:space="preserve">
-    <value>显示日志</value>
+    <value>顯示日志</value>
   </data>
   <data name="menuImportOldGuiConfig" xml:space="preserve">
-    <value>导入旧的配置文件guiNConfig</value>
+    <value>導入舊的配置文件guiNConfig</value>
   </data>
   <data name="TbEnableTunAs" xml:space="preserve">
-    <value>启用Tun模式</value>
+    <value>啓用Tun模式</value>
   </data>
   <data name="TbSettingsNewPort4LAN" xml:space="preserve">
-    <value>为局域网开启新的端口</value>
+    <value>為局域網開啓新的端口</value>
   </data>
   <data name="TbSettingsTunMode" xml:space="preserve">
-    <value>Tun模式设置</value>
+    <value>Tun模式設置</value>
   </data>
   <data name="TbSettingsTunModeDirectIP" xml:space="preserve">
-    <value>直连的IP CIDR，用逗号(,)分隔</value>
+    <value>直連的IP CIDR，用逗號(,)分隔</value>
   </data>
   <data name="TbSettingsTunModeDirectProcess" xml:space="preserve">
-    <value>直连的进程名，用逗号(,)分隔</value>
+    <value>直連的進程名，用逗號(,)分隔</value>
   </data>
   <data name="TbSettingsTunModeShowWindow" xml:space="preserve">
-    <value>显示控制台</value>
+    <value>顯示控制臺</value>
   </data>
   <data name="menuMoveToGroup" xml:space="preserve">
-    <value>移至订阅分组</value>
+    <value>移至訂閲分組</value>
   </data>
   <data name="TbSettingsTunModeCustomTemplate" xml:space="preserve">
-    <value>自定义配置模板</value>
+    <value>自定義配置模板</value>
   </data>
   <data name="TbSettingsEnableDragDropSort" xml:space="preserve">
-    <value>启用服务器拖放排序(需重启)</value>
+    <value>啓動服務器拖放排序(需重啓)</value>
   </data>
   <data name="TbAutoRefresh" xml:space="preserve">
-    <value>自动刷新</value>
+    <value>自動刷新</value>
   </data>
   <data name="SpeedtestingSkip" xml:space="preserve">
-    <value>跳过测试</value>
+    <value>跳過測試</value>
   </data>
   <data name="menuEditServer" xml:space="preserve">
-    <value>编辑服务器 (Ctrl+D)</value>
+    <value>編輯服務器 (Ctrl+D)</value>
   </data>
   <data name="TbSettingsDoubleClick2Activate" xml:space="preserve">
-    <value>主界面双击设为活动服务器</value>
+    <value>主界面雙擊設爲活動服務器</value>
   </data>
   <data name="SpeedtestingCompleted" xml:space="preserve">
-    <value>测试完成</value>
+    <value>測試完成</value>
   </data>
   <data name="TbSettingsDefFingerprint" xml:space="preserve">
-    <value>默认TLS指纹(fingerprint)</value>
+    <value>默認TLS指紋(fingerprint)</value>
   </data>
   <data name="TbSettingsDefUserAgent" xml:space="preserve">
-    <value>用户代理(User-Agent)</value>
+    <value>用戶代理(User-Agent)</value>
   </data>
   <data name="TbSettingsDefUserAgentTips" xml:space="preserve">
-    <value>仅对tcp/http、ws协议生效</value>
+    <value>僅對tcp/http、ws協議生效</value>
   </data>
   <data name="TbSettingsCurrentFontFamily" xml:space="preserve">
-    <value>当前字体(需重启)</value>
+    <value>當前字體(需重啓)</value>
   </data>
   <data name="TbSettingsCurrentFontFamilyTip" xml:space="preserve">
-    <value>拷贝字体TTF文件到目录guiFonts，重启设置</value>
+    <value>拷貝字體TTF文件到目錄guiFonts，重啓設置</value>
   </data>
   <data name="TbSettingsSocksPortTip" xml:space="preserve">
     <value>http端口=socks端口+1</value>
   </data>
   <data name="TbSettingsStartBootTip" xml:space="preserve">
-    <value>以管理员权限设置此项，在启动后获得管理员权限</value>
+    <value>以管理員權限設置此項，在啓動后獲得管理員權限</value>
   </data>
   <data name="TbSettingsFontSize" xml:space="preserve">
     <value>字体大小</value>
   </data>
   <data name="TbSettingsTunModeProxyIP" xml:space="preserve">
-    <value>代理的IP CIDR，用逗号(,)分隔</value>
+    <value>代理的IP CIDR，用逗號(,)分隔</value>
   </data>
   <data name="TbSettingsTunModeProxyProcess" xml:space="preserve">
-    <value>代理的进程名，用逗号(,)分隔</value>
+    <value>代理的進程名，用逗號(,)分隔</value>
   </data>
   <data name="TbSettingsTunModeBypassMode" xml:space="preserve">
-    <value>绕行模式</value>
+    <value>繞行模式</value>
   </data>
   <data name="TbSettingsSpeedTestTimeout" xml:space="preserve">
-    <value>测速单个超时值</value>
+    <value>測速單個超時值</value>
   </data>
   <data name="TbSettingsSpeedTestUrl" xml:space="preserve">
-    <value>测速文件地址</value>
+    <value>測速文件地址</value>
   </data>
   <data name="TbSettingsTunModeDNS" xml:space="preserve">
-    <value>DNS对象，例如 {"servers":[]}</value>
+    <value>DNS對象，例如 {"servers":[]}</value>
   </data>
   <data name="menuMoveTo" xml:space="preserve">
     <value>移至上下</value>
@@ -1079,72 +1079,60 @@
     <value>SpiderX</value>
   </data>
   <data name="TbSettingsEnableHWA" xml:space="preserve">
-    <value>启用硬件加速(需重启)</value>
+    <value>啓用硬件加速(需重啓)</value>
   </data>
   <data name="SpeedtestingWait" xml:space="preserve">
-    <value>等待测试中...</value>
+    <value>等待測試中...</value>
   </data>
   <data name="TipDisplayLog" xml:space="preserve">
-    <value>当有异常断流时请关闭</value>
+    <value>當有異常斷流時請關閉</value>
   </data>
   <data name="MsgSkipSubscriptionUpdate" xml:space="preserve">
-    <value>未启用更新，跳过此订阅</value>
+    <value>未啓動更新，跳過此訂閲</value>
   </data>
   <data name="menuRebootAsAdmin" xml:space="preserve">
-    <value>以管理员身份重启</value>
+    <value>以管理員身份重啓</value>
   </data>
   <data name="LvMoreUrl" xml:space="preserve">
-    <value>更多地址(url)，用逗号(,)分隔；订阅转换将失效</value>
+    <value>更多地址(url)，用逗號(,)分隔；訂閲轉換將失效</value>
   </data>
   <data name="LvAutoUpdateInterval" xml:space="preserve">
-    <value>自动更新间隔(分钟)</value>
+    <value>自動更新間隔(分鐘)</value>
   </data>
   <data name="TbSettingsLogEnabledToFile" xml:space="preserve">
-    <value>启用日志存到文件</value>
+    <value>啓動日志存到文件</value>
   </data>
   <data name="LvConvertTarget" xml:space="preserve">
-    <value>订阅转换目标类型</value>
+    <value>訂閲轉換目標類型</value>
   </data>
   <data name="LvConvertTargetTip" xml:space="preserve">
-    <value>不需要转换时请留空</value>
+    <value>不需要轉換時請留空</value>
   </data>
   <data name="menuDNSSetting" xml:space="preserve">
-    <value>DNS设置</value>
+    <value>DNS設置</value>
   </data>
   <data name="TbSettingsCoreDnsSingbox" xml:space="preserve">
-    <value>sing-box DNS设置</value>
+    <value>sing-box DNS設置</value>
   </data>
   <data name="TbDnsSingboxObjectDoc" xml:space="preserve">
-    <value>请填写 DNS JSON 结构，点击查看文档</value>
+    <value>請填寫 DNS JSON 結構，點擊查看文檔</value>
   </data>
   <data name="TBSettingDnsImportDefConfig" xml:space="preserve">
-    <value>点击导入默认DNS配置</value>
+    <value>點擊導入默認DNS配置</value>
   </data>
   <data name="TbdomainStrategy4Singbox" xml:space="preserve">
     <value>sing-box域名解析策略</value>
   </data>
   <data name="TbSettingsMux4SboxProtocol" xml:space="preserve">
-    <value>sing-box Mux 多路复用协议</value>
+    <value>sing-box Mux 多路復用協議</value>
   </data>
   <data name="TbRoutingRuleProcess" xml:space="preserve">
-    <value>进程名全称 (Tun模式)</value>
+    <value>進程名全稱 (Tun模式)</value>
   </data>
   <data name="TbRoutingRuleDomain" xml:space="preserve">
     <value>Domain</value>
   </data>
   <data name="TbRoutingRuleIP" xml:space="preserve">
     <value>IP 或 IP CIDR</value>
-  </data>
-  <data name="TbSettingsUserPac" xml:space="preserve">
-    <value>用户自定义Pac设置</value>
-  </data>
-  <data name="TbSettingsUserPacDirectDomains" xml:space="preserve">
-    <value>直连的域名（每行一个，无间隔符）：</value>
-  </data>
-  <data name="TbSettingsUserPacProxyDomains" xml:space="preserve">
-    <value>代理的域名（每行一个，无间隔符）：</value>
-  </data>
-  <data name="MsgUpdatePacRulesSuccessfully" xml:space="preserve">
-    <value>更新pac规则成功</value>
   </data>
 </root>

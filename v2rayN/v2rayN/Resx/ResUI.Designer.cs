@@ -2771,6 +2771,7 @@ namespace v2rayN.Resx {
         
         /// <summary>
         ///   Looks up a localized string similar to Subscription conversion Url.
+        ///   查找类似 Subscription conversion Url 的本地化字符串。
         /// </summary>
         public static string TbSettingsSubConvert {
             get {

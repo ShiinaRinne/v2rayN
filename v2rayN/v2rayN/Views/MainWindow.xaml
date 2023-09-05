@@ -15,8 +15,6 @@
     Title="v2rayN"
     Width="900"
     Height="700"
-    MinWidth="900"
-    MinHeight="700"
     x:TypeArguments="vms:MainWindowViewModel"
     Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="{x:Static conv:MaterialDesignFonts.MyFont}"
@@ -209,7 +207,7 @@
                                 <MenuItem
                                     x:Name="menuCheckUpdateN"
                                     Height="{StaticResource MenuItemHeight}"
-                                    Header="v2rayN" />
+                                    Header="V2rayN" />
                                 <MenuItem
                                     x:Name="menuCheckUpdateV2flyCore"
                                     Height="{StaticResource MenuItemHeight}"
@@ -235,7 +233,7 @@
                                 <MenuItem
                                     x:Name="menuCheckUpdateSingBoxCore"
                                     Height="{StaticResource MenuItemHeight}"
-                                    Header="sing-box Core" />
+                                    Header="Sing-box Core" />
                                 <Separator Margin="-40,5" />
                                 <MenuItem
                                     x:Name="menuCheckUpdateGeo"
@@ -289,7 +287,7 @@
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
-										<RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -311,13 +309,13 @@
                                         Margin="8"
                                         IsEnabled="{Binding ElementName=followSystemTheme, Path=IsChecked, Converter={StaticResource InverseBooleanConverter}}" />
 
-									<TextBlock
-	                                    Grid.Row="1"
-	                                    Grid.Column="0"
-	                                    VerticalAlignment="Center"
-	                                    Style="{StaticResource ToolbarTextBlock}"
-	                                    Text="{x:Static resx:ResUI.TbSettingsFollowSystemTheme}" />
-									<ToggleButton
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        VerticalAlignment="Center"
+                                        Style="{StaticResource ToolbarTextBlock}"
+                                        Text="{x:Static resx:ResUI.TbSettingsFollowSystemTheme}" />
+                                    <ToggleButton
                                         x:Name="followSystemTheme"
                                         Grid.Row="1"
                                         Grid.Column="1"
@@ -844,23 +842,6 @@
                             Header="{x:Static resx:ResUI.menuExit}" />
                     </ContextMenu>
                 </tb:TaskbarIcon.ContextMenu>
-                <tb:TaskbarIcon.TrayToolTip>
-                    <Border
-                        x:Name="borTrayToolTip"
-                        Width="Auto"
-                        Height="Auto"
-                        Background="{DynamicResource MaterialDesignLightBackground}"
-                        BorderBrush="{DynamicResource MaterialDesignDarkBackground}"
-                        BorderThickness="0"
-                        CornerRadius="4">
-                        <TextBlock
-                            Margin="8"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Foreground="{DynamicResource MaterialDesignDarkBackground}"
-                            Text="{Binding Mode=OneWay, Path=ToolTipText}" />
-                    </Border>
-                </tb:TaskbarIcon.TrayToolTip>
             </tb:TaskbarIcon>
             <materialDesign:Snackbar x:Name="MainSnackbar" MessageQueue="{materialDesign:MessageQueue}" />
         </Grid>

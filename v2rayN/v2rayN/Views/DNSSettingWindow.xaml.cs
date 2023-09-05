@@ -14,6 +14,17 @@ namespace v2rayN.Views
         public DNSSettingWindow()
         {
             InitializeComponent();
+
+            // 设置窗口的尺寸不大于屏幕的尺寸
+            if (this.Width > SystemParameters.WorkArea.Width)
+            {
+                this.Width = SystemParameters.WorkArea.Width;
+            }
+            if (this.Height > SystemParameters.WorkArea.Height)
+            {
+                this.Height = SystemParameters.WorkArea.Height;
+            }
+
             this.Owner = Application.Current.MainWindow;
             _config = LazyConfig.Instance.GetConfig();
 
@@ -44,7 +55,7 @@ namespace v2rayN.Views
 
         private void linkDnsSingboxObjectDoc_Click(object sender, RoutedEventArgs e)
         {
-            Utils.ProcessStart("http://sing-box.sagernet.org/zh/configuration/dns/");
+            Utils.ProcessStart("https://sing-box.sagernet.org/zh/configuration/dns/");
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
