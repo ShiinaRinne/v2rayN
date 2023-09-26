@@ -3230,6 +3230,24 @@ namespace v2rayN.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Pac Proxy Port.
+        /// </summary>
+        public static string TbSettingsUserCustomPacProxyPort {
+            get {
+                return ResourceManager.GetString("TbSettingsUserCustomPacProxyPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forward proxy requests in the pac settings to the specified port..
+        /// </summary>
+        public static string TbSettingsUserCustomPacProxyPortTip {
+            get {
+                return ResourceManager.GetString("TbSettingsUserCustomPacProxyPortTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download Speed.
         /// </summary>
         public static string TbSortingDownSpeed {

@@ -1270,4 +1270,10 @@
   <data name="MsgUpdatePacRulesSuccessfully" xml:space="preserve">
     <value>更新pac规则成功</value>
   </data>
+  <data name="TbSettingsUserCustomPacProxyPort" xml:space="preserve">
+    <value>自定义pac代理端口</value>
+  </data>
+  <data name="TbSettingsUserCustomPacProxyPortTip" xml:space="preserve">
+    <value>将pac设置中的代理请求转发至指定端口</value>
+  </data>
 </root>
