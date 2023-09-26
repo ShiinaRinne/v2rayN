@@ -67,6 +67,7 @@ namespace v2rayN.ViewModels
         [Reactive] public string SpeedTestUrl { get; set; }
         [Reactive] public bool EnableHWA { get; set; }
         [Reactive] public string SubConvertUrl { get; set; }
+        [Reactive] public int CustomPacProxyPort { get; set; }
 
         #endregion UI
 
@@ -163,6 +164,7 @@ namespace v2rayN.ViewModels
             SpeedTestUrl = _config.speedTestItem.speedTestUrl;
             EnableHWA = _config.guiItem.enableHWA;
             SubConvertUrl = _config.constItem.subConvertUrl;
+            CustomPacProxyPort = _config.constItem.customPacProxyPort;
 
             #endregion UI
 
@@ -314,6 +316,7 @@ namespace v2rayN.ViewModels
             _config.speedTestItem.speedTestUrl = SpeedTestUrl;
             _config.guiItem.enableHWA = EnableHWA;
             _config.constItem.subConvertUrl = SubConvertUrl;
+            _config.constItem.customPacProxyPort = CustomPacProxyPort;
 
             //systemProxy
             _config.systemProxyExceptions = systemProxyExceptions;

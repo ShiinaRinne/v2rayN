@@ -132,6 +132,7 @@ namespace v2rayN.Mode
     {
         public string defIEProxyExceptions { get; set; }
         public string subConvertUrl { get; set; } = string.Empty;
+        public int customPacProxyPort { get; set; } = 10809;
     }
 
     [Serializable]

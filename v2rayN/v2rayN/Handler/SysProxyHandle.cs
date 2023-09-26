@@ -92,6 +92,8 @@ namespace v2rayN.Handler
                 }
                 else if (type == ESysProxyType.Pac)
                 {
+                    // Forward the request to the target port, default is v2rayN's http listening port 10809
+                    port = LazyConfig.Instance.GetConfig().constItem.customPacProxyPort;
                     PacHandler.Start(Utils.GetConfigPath(), port, portPac);
                     var strProxy = $"{Global.httpProtocol}{Global.Loopback}:{portPac}/pac?t={DateTime.Now.Ticks}";
                     ProxySetting.SetProxy(strProxy, "", 4);

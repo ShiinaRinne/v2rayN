@@ -10,19 +10,19 @@ namespace PacLib;
 public class PacHandler
 {
     private static string _configPath;
-    private static int _httpPort;
+    private static int _proxyPort;
     private static int _pacPort;
     private static TcpListener? _tcpListener;
     private static string _pacText;
     private static bool _isRunning;
     private static bool _needRestart = true;
 
-    public static void Start(string configPath, int httpPort, int pacPort)
+    public static void Start(string configPath, int proxyPort, int pacPort)
     {
-        _needRestart = (configPath != _configPath || httpPort != _httpPort || pacPort != _pacPort || !_isRunning);
+        _needRestart = (configPath != _configPath || proxyPort != _proxyPort || pacPort != _pacPort || !_isRunning);
 
         _configPath = configPath;
-        _httpPort = httpPort;
+        _proxyPort = proxyPort;
         _pacPort = pacPort;
 
         InitText();
@@ -42,7 +42,7 @@ public class PacHandler
             File.AppendAllText(path, Resources.ResourceManager.GetString("pac"));
         }
 
-        _pacText = File.ReadAllText(path).Replace("__PROXY__", $"PROXY 127.0.0.1:{_httpPort};DIRECT;");
+        _pacText = File.ReadAllText(path).Replace("__PROXY__", $"PROXY 127.0.0.1:{_proxyPort};DIRECT;");
 
         var userPac = LoadUserPac(_configPath);
         if (userPac != null)

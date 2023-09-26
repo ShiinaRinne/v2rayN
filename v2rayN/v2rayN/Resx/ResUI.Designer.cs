@@ -2761,17 +2761,7 @@ namespace v2rayN.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Statistics freshrate (second).
-        /// </summary>
-        public static string TbSettingsStatisticsFreshRate {
-            get {
-                return ResourceManager.GetString("TbSettingsStatisticsFreshRate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Subscription conversion Url.
-        ///   查找类似 Subscription conversion Url 的本地化字符串。
         /// </summary>
         public static string TbSettingsSubConvert {
             get {
@@ -2902,6 +2892,24 @@ namespace v2rayN.Resx {
         public static string TbSettingsUser {
             get {
                 return ResourceManager.GetString("TbSettingsUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Pac Proxy Port.
+        /// </summary>
+        public static string TbSettingsUserCustomPacProxyPort {
+            get {
+                return ResourceManager.GetString("TbSettingsUserCustomPacProxyPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forward proxy requests in the pac settings to the specified port..
+        /// </summary>
+        public static string TbSettingsUserCustomPacProxyPortTip {
+            get {
+                return ResourceManager.GetString("TbSettingsUserCustomPacProxyPortTip", resourceCulture);
             }
         }
         
