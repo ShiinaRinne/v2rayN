@@ -33,6 +33,8 @@ namespace v2rayN.ViewModels
         [Reactive] public string defFingerprint { get; set; }
         [Reactive] public string defUserAgent { get; set; }
         [Reactive] public string mux4SboxProtocol { get; set; }
+        [Reactive] public int hyUpMbps { get; set; }
+        [Reactive] public int hyDownMbps { get; set; }
 
         #endregion Core
 
@@ -83,6 +85,8 @@ namespace v2rayN.ViewModels
         [Reactive] public bool TunStrictRoute { get; set; }
         [Reactive] public string TunStack { get; set; }
         [Reactive] public int TunMtu { get; set; }
+        [Reactive] public bool TunEnableExInbound { get; set; }
+        [Reactive] public bool TunEnableIPv6Address { get; set; }
 
         #endregion Tun mode
 
@@ -129,7 +133,9 @@ namespace v2rayN.ViewModels
             defAllowInsecure = _config.coreBasicItem.defAllowInsecure;
             defFingerprint = _config.coreBasicItem.defFingerprint;
             defUserAgent = _config.coreBasicItem.defUserAgent;
-            mux4SboxProtocol = _config.mux4Sbox.protocol;
+            mux4SboxProtocol = _config.mux4SboxItem.protocol;
+            hyUpMbps = _config.hysteriaItem.up_mbps;
+            hyDownMbps = _config.hysteriaItem.down_mbps;
 
             #endregion Core
 
@@ -180,6 +186,8 @@ namespace v2rayN.ViewModels
             TunStrictRoute = _config.tunModeItem.strictRoute;
             TunStack = _config.tunModeItem.stack;
             TunMtu = _config.tunModeItem.mtu;
+            TunEnableExInbound = _config.tunModeItem.enableExInbound;
+            TunEnableIPv6Address = _config.tunModeItem.enableIPv6Address;
 
             #endregion Tun mode
 
@@ -286,7 +294,9 @@ namespace v2rayN.ViewModels
             _config.coreBasicItem.defAllowInsecure = defAllowInsecure;
             _config.coreBasicItem.defFingerprint = defFingerprint;
             _config.coreBasicItem.defUserAgent = defUserAgent;
-            _config.mux4Sbox.protocol = mux4SboxProtocol;
+            _config.mux4SboxItem.protocol = mux4SboxProtocol;
+            _config.hysteriaItem.up_mbps = hyUpMbps;
+            _config.hysteriaItem.down_mbps = hyDownMbps;
 
             //Kcp
             //_config.kcpItem.mtu = Kcpmtu;
@@ -326,11 +336,13 @@ namespace v2rayN.ViewModels
             _config.tunModeItem.strictRoute = TunStrictRoute;
             _config.tunModeItem.stack = TunStack;
             _config.tunModeItem.mtu = TunMtu;
+            _config.tunModeItem.enableExInbound = TunEnableExInbound;
+            _config.tunModeItem.enableIPv6Address = TunEnableIPv6Address;
 
             //coreType
             SaveCoreType();
 
-            if (ConfigHandler.SaveConfig(ref _config) == 0)
+            if (ConfigHandler.SaveConfig(_config) == 0)
             {
                 _noticeHandler?.Enqueue(ResUI.OperationSuccess);
                 _view.DialogResult = true;
@@ -374,6 +386,10 @@ namespace v2rayN.ViewModels
                     case 6:
                         type = CoreType6;
                         break;
+
+                    case 7:
+                    case 8:
+                        continue;
                 }
                 item.coreType = (ECoreType)Enum.Parse(typeof(ECoreType), type);
             }

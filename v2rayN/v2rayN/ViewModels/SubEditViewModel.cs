@@ -69,9 +69,11 @@ namespace v2rayN.ViewModels
                 item.sort = SelectedSource.sort;
                 item.filter = SelectedSource.filter;
                 item.convertTarget = SelectedSource.convertTarget;
+                item.prevProfile = SelectedSource.prevProfile;
+                item.nextProfile = SelectedSource.nextProfile;
             }
 
-            if (ConfigHandler.AddSubItem(ref _config, item) == 0)
+            if (ConfigHandler.AddSubItem(_config, item) == 0)
             {
                 _noticeHandler?.Enqueue(ResUI.OperationSuccess);
                 _view.DialogResult = true;

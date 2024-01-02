@@ -72,7 +72,7 @@
         public string? domain_strategy { get; set; }
         public string interface_name { get; set; }
         public string inet4_address { get; set; }
-        public string inet6_address { get; set; }
+        public string? inet6_address { get; set; }
         public int? mtu { get; set; }
         public bool? auto_route { get; set; }
         public bool? strict_route { get; set; }
@@ -105,10 +105,11 @@
         public int? recv_window_conn { get; set; }
         public int? recv_window { get; set; }
         public bool? disable_mtu_discovery { get; set; }
-        public string detour { get; set; }
+        public string? detour { get; set; }
         public string method { get; set; }
         public string username { get; set; }
         public string password { get; set; }
+        public string congestion_control { get; set; }
         public string? version { get; set; }
         public string? network { get; set; }
         public string packet_encoding { get; set; }

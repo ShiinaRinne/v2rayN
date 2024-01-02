@@ -24,11 +24,13 @@ namespace v2rayN.Handler
         {
             public bool Success;
             public string Msg;
+            public string Url;
 
-            public ResultEventArgs(bool success, string msg)
+            public ResultEventArgs(bool success, string msg, string url = "")
             {
                 Success = success;
                 Msg = msg;
+                Url = url;
             }
         }
 
@@ -83,8 +85,9 @@ namespace v2rayN.Handler
                 if (args.Success)
                 {
                     _updateFunc(false, string.Format(ResUI.MsgParsingSuccessfully, "v2rayN"));
+                    _updateFunc(false, args.Msg);
 
-                    url = args.Msg;
+                    url = args.Url;
                     _ = askToDownload(downloadHandle, url, true);
                 }
                 else
@@ -135,7 +138,9 @@ namespace v2rayN.Handler
                 if (args.Success)
                 {
                     _updateFunc(false, string.Format(ResUI.MsgParsingSuccessfully, "Core"));
-                    url = args.Msg;
+                    _updateFunc(false, args.Msg);
+
+                    url = args.Url;
                     _ = askToDownload(downloadHandle, url, true);
                 }
                 else
@@ -175,7 +180,7 @@ namespace v2rayN.Handler
                         //_updateFunc(false, $"{hashCode}{ResUI.MsgNoValidSubscription}");
                         continue;
                     }
-                    if (!url.StartsWith(Global.httpsProtocol) && !url.StartsWith(Global.httpProtocol))
+                    if (!url.StartsWith(Global.HttpsProtocol) && !url.StartsWith(Global.HttpProtocol))
                     {
                         continue;
                     }
@@ -266,7 +271,7 @@ namespace v2rayN.Handler
                             _updateFunc(false, $"{hashCode}{result}");
                         }
 
-                        int ret = ConfigHandler.AddBatchServers(ref config, result, id, true);
+                        int ret = ConfigHandler.AddBatchServers(config, result, id, true);
                         if (ret <= 0)
                         {
                             Utils.SaveLog("FailedImportSubscription");
@@ -291,8 +296,8 @@ namespace v2rayN.Handler
                 await UpdateGeoFile("geosite", _config, update);
                 await UpdateGeoFile("geoip", _config, update);
 
-                await UpdateGeoFile4Singbox("geosite", _config, false, update);
-                await UpdateGeoFile4Singbox("geoip", _config, true, update);
+                //await UpdateGeoFile4Singbox("geosite", _config, false, update);
+                //await UpdateGeoFile4Singbox("geoip", _config, true, update);
             });
         }
 
@@ -448,15 +453,10 @@ namespace v2rayN.Handler
             try
             {
                 var gitHubReleases = Utils.FromJson<List<GitHubRelease>>(gitHubReleaseApi);
-                SemanticVersion version;
-                if (preRelease)
-                {
-                    version = new SemanticVersion(gitHubReleases!.First().TagName);
-                }
-                else
-                {
-                    version = new SemanticVersion(gitHubReleases!.First(r => r.Prerelease == false).TagName);
-                }
+                var gitHubRelease = preRelease ? gitHubReleases!.First() : gitHubReleases!.First(r => r.Prerelease == false);
+                var version = new SemanticVersion(gitHubRelease!.TagName);
+                var body = gitHubRelease!.Body;
+
                 var coreInfo = LazyConfig.Instance.GetCoreInfo(type);
 
                 SemanticVersion curVersion;
@@ -470,7 +470,7 @@ namespace v2rayN.Handler
                     case ECoreType.v2fly_v5:
                         {
                             curVersion = getCoreVersion(type);
-                            message = string.Format(ResUI.IsLatestCore, curVersion.ToVersionString("v"));
+                            message = string.Format(ResUI.IsLatestCore, type, curVersion.ToVersionString("v"));
                             string osBit = "64";
                             switch (RuntimeInformation.ProcessArchitecture)
                             {
@@ -494,7 +494,7 @@ namespace v2rayN.Handler
                     case ECoreType.clash_meta:
                         {
                             curVersion = getCoreVersion(type);
-                            message = string.Format(ResUI.IsLatestCore, curVersion);
+                            message = string.Format(ResUI.IsLatestCore, type, curVersion);
                             switch (RuntimeInformation.ProcessArchitecture)
                             {
                                 case Architecture.Arm64:
@@ -515,7 +515,7 @@ namespace v2rayN.Handler
                     case ECoreType.sing_box:
                         {
                             curVersion = getCoreVersion(type);
-                            message = string.Format(ResUI.IsLatestCore, curVersion.ToVersionString("v"));
+                            message = string.Format(ResUI.IsLatestCore, type, curVersion.ToVersionString("v"));
                             switch (RuntimeInformation.ProcessArchitecture)
                             {
                                 case Architecture.Arm64:
@@ -536,7 +536,7 @@ namespace v2rayN.Handler
                     case ECoreType.v2rayN:
                         {
                             curVersion = new SemanticVersion(FileVersionInfo.GetVersionInfo(Utils.GetExePath()).FileVersion.ToString());
-                            message = string.Format(ResUI.IsLatestN, curVersion);
+                            message = string.Format(ResUI.IsLatestN, type, curVersion);
                             switch (RuntimeInformation.ProcessArchitecture)
                             {
                                 case Architecture.Arm64:
@@ -563,7 +563,7 @@ namespace v2rayN.Handler
                     return;
                 }
 
-                AbsoluteCompleted?.Invoke(this, new ResultEventArgs(true, url));
+                AbsoluteCompleted?.Invoke(this, new ResultEventArgs(true, body, url));
             }
             catch (Exception ex)
             {
@@ -596,7 +596,7 @@ namespace v2rayN.Handler
         {
             _config = config;
             _updateFunc = update;
-            var url = string.Format(Global.geoUrl, geoName);
+            var url = string.Format(Global.GeoUrl, geoName);
 
             DownloadHandle downloadHandle = new();
             downloadHandle.UpdateCompleted += (sender2, args) =>
@@ -643,10 +643,10 @@ namespace v2rayN.Handler
         {
             _config = config;
             _updateFunc = update;
-            var url = string.Format(Global.singboxGeoUrl, geoName);
+            var url = string.Format(Global.SingboxGeoUrl, geoName);
 
             DownloadHandle downloadHandle = new();
-            downloadHandle.UpdateCompleted += (sender2, args) =>
+            downloadHandle.UpdateCompleted += async (sender2, args) =>
             {
                 if (args.Success)
                 {
@@ -655,8 +655,11 @@ namespace v2rayN.Handler
 
                     try
                     {
-                        if (needStop) coreHandler?.CoreStop();
-                        Task.Delay(1000);
+                        if (needStop)
+                        {
+                            coreHandler?.CoreStop();
+                            await Task.Delay(3000);
+                        }
                         string fileName = Utils.GetTempPath(Utils.GetDownloadFileName(url));
                         if (File.Exists(fileName))
                         {

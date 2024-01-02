@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Reactive.Linq;
 using System.Text;
 using v2rayN.Mode;
 using v2rayN.Resx;
@@ -27,14 +28,14 @@ namespace v2rayN.Handler
 
         public void LoadCore()
         {
-            var node = ConfigHandler.GetDefaultServer(ref _config);
+            var node = ConfigHandler.GetDefaultServer(_config);
             if (node == null)
             {
                 ShowMsg(false, ResUI.CheckServerSettings);
                 return;
             }
 
-            string fileName = Utils.GetConfigPath(Global.coreConfigFileName);
+            string fileName = Utils.GetConfigPath(Global.CoreConfigFileName);
             if (CoreConfigHandler.GenerateClientConfig(node, fileName, out string msg, out string content) != 0)
             {
                 ShowMsg(false, msg);
@@ -45,21 +46,40 @@ namespace v2rayN.Handler
                 ShowMsg(true, $"{node.GetSummary()}");
                 CoreStop();
                 CoreStart(node);
+
+                //In tun mode, do a delay check and restart the core
+                if (_config.tunModeItem.enableTun)
+                {
+                    Observable.Range(1, 1)
+                    .Delay(TimeSpan.FromSeconds(15))
+                    .Subscribe(x =>
+                    {
+                        {
+                            if (_process == null || _process.HasExited)
+                            {
+                                CoreStart(node);
+                                ShowMsg(false, "Tun mode restart the core once");
+                                Utils.SaveLog("Tun mode restart the core once");
+                            }
+                        }
+                    });
+                }
             }
         }
 
-        public int LoadCoreConfigString(List<ServerTestItem> _selecteds)
+        public int LoadCoreConfigSpeedtest(List<ServerTestItem> selecteds)
         {
             int pid = -1;
-            string configStr = CoreConfigHandler.GenerateClientSpeedtestConfigString(_config, _selecteds, out string msg);
-            if (configStr == "")
+            var coreType = selecteds.Exists(t => t.configType == EConfigType.Hysteria2 || t.configType == EConfigType.Tuic) ? ECoreType.sing_box : ECoreType.Xray;
+            string configPath = Utils.GetConfigPath(Global.CoreSpeedtestConfigFileName);
+            if (CoreConfigHandler.GenerateClientSpeedtestConfig(_config, configPath, selecteds, coreType, out string msg) != 0)
             {
                 ShowMsg(false, msg);
             }
             else
             {
                 ShowMsg(false, msg);
-                pid = CoreStartViaString(configStr);
+                pid = CoreStartSpeedtest(configPath, coreType);
             }
             return pid;
         }
@@ -96,7 +116,7 @@ namespace v2rayN.Handler
                         }
                         foreach (string vName in it.coreExes)
                         {
-                            Process[] existing = Process.GetProcessesByName(vName);
+                            var existing = Process.GetProcessesByName(vName);
                             foreach (Process p in existing)
                             {
                                 string? path = p.MainModule?.FileName;
@@ -119,7 +139,7 @@ namespace v2rayN.Handler
         {
             try
             {
-                Process _p = Process.GetProcessById(pid);
+                var _p = Process.GetProcessById(pid);
                 KillProcess(_p);
             }
             catch (Exception ex)
@@ -185,11 +205,11 @@ namespace v2rayN.Handler
                         address = Global.Loopback,
                         port = node.preSocksPort
                     };
-                    string fileName2 = Utils.GetConfigPath(Global.corePreConfigFileName);
+                    string fileName2 = Utils.GetConfigPath(Global.CorePreConfigFileName);
                     if (CoreConfigHandler.GenerateClientConfig(itemSocks, fileName2, out string msg2, out string configStr) == 0)
                     {
                         var coreInfo2 = LazyConfig.Instance.GetCoreInfo(ECoreType.sing_box);
-                        var proc2 = RunProcess(node, coreInfo2, $" -c {Global.corePreConfigFileName}", true, ShowMsg);
+                        var proc2 = RunProcess(node, coreInfo2, $" -c {Global.CorePreConfigFileName}", true, ShowMsg);
                         if (proc2 is not null)
                         {
                             _processPre = proc2;
@@ -199,62 +219,21 @@ namespace v2rayN.Handler
             }
         }
 
-        private int CoreStartViaString(string configStr)
+        private int CoreStartSpeedtest(string configPath, ECoreType coreType)
         {
             ShowMsg(false, string.Format(ResUI.StartService, DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")));
 
+            ShowMsg(false, configPath);
             try
             {
-                var coreInfo = LazyConfig.Instance.GetCoreInfo(ECoreType.Xray);
-                string fileName = CoreFindexe(coreInfo);
-                if (fileName == "") return -1;
-
-                Process p = new()
+                var coreInfo = LazyConfig.Instance.GetCoreInfo(coreType);
+                var proc = RunProcess(new(), coreInfo, $" -c {Global.CoreSpeedtestConfigFileName}", true, ShowMsg);
+                if (proc is null)
                 {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = fileName,
-                        Arguments = "-config stdin:",
-                        WorkingDirectory = Utils.GetConfigPath(),
-                        UseShellExecute = false,
-                        RedirectStandardInput = true,
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        CreateNoWindow = true,
-                        StandardOutputEncoding = Encoding.UTF8,
-                        StandardErrorEncoding = Encoding.UTF8
-                    }
-                };
-                p.OutputDataReceived += (sender, e) =>
-                {
-                    if (!String.IsNullOrEmpty(e.Data))
-                    {
-                        string msg = e.Data + Environment.NewLine;
-                        ShowMsg(false, msg);
-                    }
-                };
-                p.ErrorDataReceived += (sender, e) =>
-                {
-                    if (!string.IsNullOrEmpty(e.Data))
-                    {
-                        string msg = e.Data + Environment.NewLine;
-                        ShowMsg(false, msg);
-                    }
-                };
-                p.Start();
-                p.BeginOutputReadLine();
-                p.BeginErrorReadLine();
-
-                p.StandardInput.Write(configStr);
-                p.StandardInput.Close();
-
-                if (p.WaitForExit(1000))
-                {
-                    throw new Exception(p.StandardError.ReadToEnd());
+                    return -1;
                 }
 
-                Global.processJob.AddProcess(p.Handle);
-                return p.Id;
+                return proc.Id;
             }
             catch (Exception ex)
             {
@@ -283,7 +262,7 @@ namespace v2rayN.Handler
                 }
                 Process proc = new()
                 {
-                    StartInfo = new ProcessStartInfo
+                    StartInfo = new()
                     {
                         FileName = fileName,
                         Arguments = string.Format(coreInfo.arguments, configPath),
@@ -327,7 +306,7 @@ namespace v2rayN.Handler
                     throw new Exception(displayLog ? proc.StandardError.ReadToEnd() : "启动进程失败并退出 (Failed to start the process and exited)");
                 }
 
-                Global.processJob.AddProcess(proc.Handle);
+                Global.ProcessJob.AddProcess(proc.Handle);
                 return proc;
             }
             catch (Exception ex)
@@ -339,16 +318,20 @@ namespace v2rayN.Handler
             }
         }
 
-        private void KillProcess(Process p)
+        private void KillProcess(Process? proc)
         {
+            if (proc is null)
+            {
+                return;
+            }
             try
             {
-                p.CloseMainWindow();
-                p.WaitForExit(100);
-                if (!p.HasExited)
+                proc.CloseMainWindow();
+                proc.WaitForExit(100);
+                if (!proc.HasExited)
                 {
-                    p.Kill();
-                    p.WaitForExit(100);
+                    proc.Kill();
+                    proc.WaitForExit(100);
                 }
             }
             catch (Exception ex)

@@ -29,6 +29,8 @@ namespace v2rayN.Handler
                     EConfigType.Socks => ShareSocks(item),
                     EConfigType.Trojan => ShareTrojan(item),
                     EConfigType.VLESS => ShareVLESS(item),
+                    EConfigType.Hysteria2 => ShareHysteria2(item),
+                    EConfigType.Tuic => ShareTuic(item),
                     _ => null,
                 };
 
@@ -66,7 +68,7 @@ namespace v2rayN.Handler
 
             url = Utils.ToJson(vmessQRCode);
             url = Utils.Base64Encode(url);
-            url = $"{Global.vmessProtocol}{url}";
+            url = $"{Global.ProtocolShares[EConfigType.VMess]}{url}";
 
             return url;
         }
@@ -89,7 +91,7 @@ namespace v2rayN.Handler
             //new Sip002
             var pw = Utils.Base64Encode($"{item.security}:{item.id}");
             url = $"{pw}@{GetIpv6(item.address)}:{item.port}";
-            url = $"{Global.ssProtocol}{url}{remark}";
+            url = $"{Global.ProtocolShares[EConfigType.Shadowsocks]}{url}{remark}";
             return url;
         }
 
@@ -110,7 +112,7 @@ namespace v2rayN.Handler
             //new
             var pw = Utils.Base64Encode($"{item.security}:{item.id}");
             url = $"{pw}@{GetIpv6(item.address)}:{item.port}";
-            url = $"{Global.socksProtocol}{url}{remark}";
+            url = $"{Global.ProtocolShares[EConfigType.Socks]}{url}{remark}";
             return url;
         }
 
@@ -130,7 +132,7 @@ namespace v2rayN.Handler
             item.id,
             GetIpv6(item.address),
             item.port);
-            url = $"{Global.trojanProtocol}{url}{query}{remark}";
+            url = $"{Global.ProtocolShares[EConfigType.Trojan]}{url}{query}{remark}";
             return url;
         }
 
@@ -158,7 +160,65 @@ namespace v2rayN.Handler
             item.id,
             GetIpv6(item.address),
             item.port);
-            url = $"{Global.vlessProtocol}{url}{query}{remark}";
+            url = $"{Global.ProtocolShares[EConfigType.VLESS]}{url}{query}{remark}";
+            return url;
+        }
+
+        private static string ShareHysteria2(ProfileItem item)
+        {
+            string url = string.Empty;
+            string remark = string.Empty;
+            if (!Utils.IsNullOrEmpty(item.remarks))
+            {
+                remark = "#" + Utils.UrlEncode(item.remarks);
+            }
+            var dicQuery = new Dictionary<string, string>();
+            if (!Utils.IsNullOrEmpty(item.sni))
+            {
+                dicQuery.Add("sni", item.sni);
+            }
+            if (!Utils.IsNullOrEmpty(item.alpn))
+            {
+                dicQuery.Add("alpn", Utils.UrlEncode(item.alpn));
+            }
+            dicQuery.Add("insecure", item.allowInsecure.ToLower() == "true" ? "1" : "0");
+
+            string query = "?" + string.Join("&", dicQuery.Select(x => x.Key + "=" + x.Value).ToArray());
+
+            url = string.Format("{0}@{1}:{2}",
+            item.id,
+            GetIpv6(item.address),
+            item.port);
+            url = $"{Global.ProtocolShares[EConfigType.Hysteria2]}{url}{query}{remark}";
+            return url;
+        }
+
+        private static string ShareTuic(ProfileItem item)
+        {
+            string url = string.Empty;
+            string remark = string.Empty;
+            if (!Utils.IsNullOrEmpty(item.remarks))
+            {
+                remark = "#" + Utils.UrlEncode(item.remarks);
+            }
+            var dicQuery = new Dictionary<string, string>();
+            if (!Utils.IsNullOrEmpty(item.sni))
+            {
+                dicQuery.Add("sni", item.sni);
+            }
+            if (!Utils.IsNullOrEmpty(item.alpn))
+            {
+                dicQuery.Add("alpn", Utils.UrlEncode(item.alpn));
+            }
+            dicQuery.Add("congestion_control", item.headerType);
+
+            string query = "?" + string.Join("&", dicQuery.Select(x => x.Key + "=" + x.Value).ToArray());
+
+            url = string.Format("{0}@{1}:{2}",
+            $"{item.id}:{item.security}",
+            GetIpv6(item.address),
+            item.port);
+            url = $"{Global.ProtocolShares[EConfigType.Tuic]}{url}{query}{remark}";
             return url;
         }
 
@@ -299,7 +359,7 @@ namespace v2rayN.Handler
                     return null;
                 }
 
-                if (result.StartsWith(Global.vmessProtocol))
+                if (result.StartsWith(Global.ProtocolShares[EConfigType.VMess]))
                 {
                     int indexSplit = result.IndexOf("?");
                     if (indexSplit > 0)
@@ -311,7 +371,7 @@ namespace v2rayN.Handler
                         profileItem = ResolveVmess(result, out msg);
                     }
                 }
-                else if (result.StartsWith(Global.ssProtocol))
+                else if (result.StartsWith(Global.ProtocolShares[EConfigType.Shadowsocks]))
                 {
                     msg = ResUI.ConfigurationFormatIncorrect;
 
@@ -327,7 +387,7 @@ namespace v2rayN.Handler
 
                     profileItem.configType = EConfigType.Shadowsocks;
                 }
-                else if (result.StartsWith(Global.socksProtocol))
+                else if (result.StartsWith(Global.ProtocolShares[EConfigType.Socks]))
                 {
                     msg = ResUI.ConfigurationFormatIncorrect;
 
@@ -343,15 +403,25 @@ namespace v2rayN.Handler
 
                     profileItem.configType = EConfigType.Socks;
                 }
-                else if (result.StartsWith(Global.trojanProtocol))
+                else if (result.StartsWith(Global.ProtocolShares[EConfigType.Trojan]))
                 {
                     msg = ResUI.ConfigurationFormatIncorrect;
 
                     profileItem = ResolveTrojan(result);
                 }
-                else if (result.StartsWith(Global.vlessProtocol))
+                else if (result.StartsWith(Global.ProtocolShares[EConfigType.VLESS]))
                 {
                     profileItem = ResolveStdVLESS(result);
+                }
+                else if (result.StartsWith(Global.ProtocolShares[EConfigType.Hysteria2]) || result.StartsWith(Global.Hysteria2ProtocolShare))
+                {
+                    msg = ResUI.ConfigurationFormatIncorrect;
+
+                    profileItem = ResolveHysteria2(result);
+                }
+                else if (result.StartsWith(Global.ProtocolShares[EConfigType.Tuic]))
+                {
+                    profileItem = ResolveTuic(result);
                 }
                 else
                 {
@@ -377,7 +447,7 @@ namespace v2rayN.Handler
                 configType = EConfigType.VMess
             };
 
-            result = result[Global.vmessProtocol.Length..];
+            result = result[Global.ProtocolShares[EConfigType.VMess].Length..];
             result = Utils.Base64Decode(result);
 
             //转成Json
@@ -425,7 +495,7 @@ namespace v2rayN.Handler
             {
                 configType = EConfigType.VMess
             };
-            result = result[Global.vmessProtocol.Length..];
+            result = result[Global.ProtocolShares[EConfigType.VMess].Length..];
             int indexSplit = result.IndexOf("?");
             if (indexSplit > 0)
             {
@@ -642,7 +712,7 @@ namespace v2rayN.Handler
             {
                 configType = EConfigType.Socks
             };
-            result = result[Global.socksProtocol.Length..];
+            result = result[Global.ProtocolShares[EConfigType.Socks].Length..];
             //remark
             int indexRemark = result.IndexOf("#");
             if (indexRemark > 0)
@@ -754,6 +824,53 @@ namespace v2rayN.Handler
             item.security = query["encryption"] ?? "none";
             item.streamSecurity = query["security"] ?? "";
             ResolveStdTransport(query, ref item);
+
+            return item;
+        }
+
+        private static ProfileItem ResolveHysteria2(string result)
+        {
+            ProfileItem item = new()
+            {
+                configType = EConfigType.Hysteria2
+            };
+
+            Uri url = new(result);
+
+            item.address = url.IdnHost;
+            item.port = url.Port;
+            item.remarks = url.GetComponents(UriComponents.Fragment, UriFormat.Unescaped);
+            item.id = url.UserInfo;
+
+            var query = HttpUtility.ParseQueryString(url.Query);
+            ResolveStdTransport(query, ref item);
+            item.allowInsecure = (query["insecure"] ?? "") == "1" ? "true" : "false";
+
+            return item;
+        }
+
+        private static ProfileItem ResolveTuic(string result)
+        {
+            ProfileItem item = new()
+            {
+                configType = EConfigType.Tuic
+            };
+
+            Uri url = new(result);
+
+            item.address = url.IdnHost;
+            item.port = url.Port;
+            item.remarks = url.GetComponents(UriComponents.Fragment, UriFormat.Unescaped);
+            var userInfoParts = url.UserInfo.Split(new[] { ':' }, 2);
+            if (userInfoParts.Length == 2)
+            {
+                item.id = userInfoParts[0];
+                item.security = userInfoParts[1];
+            }
+
+            var query = HttpUtility.ParseQueryString(url.Query);
+            ResolveStdTransport(query, ref item);
+            item.headerType = query["congestion_control"] ?? "";
 
             return item;
         }

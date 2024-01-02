@@ -80,6 +80,7 @@ namespace v2rayN.Handler
 
                 if (File.Exists(fileName))
                 {
+                    File.SetAttributes(fileName, FileAttributes.Normal); //If the file has a read-only attribute, direct deletion will fail
                     File.Delete(fileName);
                 }
 
@@ -94,6 +95,7 @@ namespace v2rayN.Handler
                     return -1;
                 }
                 File.Copy(addressFileName, fileName);
+                File.SetAttributes(fileName, FileAttributes.Normal); //Copy will keep the attributes of addressFileName, so we need to add write permissions to fileName just in case of addressFileName is a read-only file.
 
                 //check again
                 if (!File.Exists(fileName))
@@ -117,6 +119,7 @@ namespace v2rayN.Handler
 
                         case ECoreType.clash:
                         case ECoreType.clash_meta:
+                        case ECoreType.mihomo:
                             //remove the original
                             var indexPort = fileContent.FindIndex(t => t.Contains("port:"));
                             if (indexPort >= 0)
@@ -147,10 +150,26 @@ namespace v2rayN.Handler
             return 0;
         }
 
-        public static string GenerateClientSpeedtestConfigString(Config config, List<ServerTestItem> selecteds, out string msg)
+        public static int GenerateClientSpeedtestConfig(Config config, string fileName, List<ServerTestItem> selecteds, ECoreType coreType, out string msg)
         {
-            var coreConfigV2ray = new CoreConfigV2ray(config);
-            return coreConfigV2ray.GenerateClientSpeedtestConfigString(selecteds, out msg);
+            if (coreType == ECoreType.sing_box)
+            {
+                if ((new CoreConfigSingbox(config)).GenerateClientSpeedtestConfig(selecteds, out SingboxConfig? singboxConfig, out msg) != 0)
+                {
+                    return -1;
+                }
+                Utils.ToJsonFile(singboxConfig, fileName, false);
+            }
+            else
+            {
+                if ((new CoreConfigV2ray(config)).GenerateClientSpeedtestConfig(selecteds, out V2rayConfig? v2rayConfig, out msg) != 0)
+                {
+                    return -1;
+                }
+
+                Utils.ToJsonFile(v2rayConfig, fileName, false);
+            }
+            return 0;
         }
     }
 }

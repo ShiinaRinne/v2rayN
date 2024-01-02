@@ -83,6 +83,14 @@
                                     x:Name="menuAddTrojanServer"
                                     Height="{StaticResource MenuItemHeight}"
                                     Header="{x:Static resx:ResUI.menuAddTrojanServer}" />
+                                <MenuItem
+                                    x:Name="menuAddHysteria2Server"
+                                    Height="{StaticResource MenuItemHeight}"
+                                    Header="{x:Static resx:ResUI.menuAddHysteria2Server}" />
+                                <MenuItem
+                                    x:Name="menuAddTuicServer"
+                                    Height="{StaticResource MenuItemHeight}"
+                                    Header="{x:Static resx:ResUI.menuAddTuicServer}" />
                                 <Separator Margin="-40,5" />
                                 <MenuItem
                                     x:Name="menuAddServerViaClipboard"
@@ -208,19 +216,19 @@
                                     x:Name="menuCheckUpdateN"
                                     Height="{StaticResource MenuItemHeight}"
                                     Header="V2rayN" />
-                                <MenuItem
+                                <!--<MenuItem
                                     x:Name="menuCheckUpdateV2flyCore"
                                     Height="{StaticResource MenuItemHeight}"
                                     Header="V2fly v5 Core" />
-                                <MenuItem
+                              <MenuItem
                                     x:Name="menuCheckUpdateSagerNetCore"
                                     Height="{StaticResource MenuItemHeight}"
-                                    Header="SagerNet Core" />
+                                    Header="SagerNet Core" />-->
                                 <MenuItem
                                     x:Name="menuCheckUpdateXrayCore"
                                     Height="{StaticResource MenuItemHeight}"
                                     Header="Xray Core" />
-                                <Separator Margin="-40,5" />
+                                <!--<Separator Margin="-40,5" />
                                 <MenuItem
                                     x:Name="menuCheckUpdateClashCore"
                                     Height="{StaticResource MenuItemHeight}"
@@ -229,7 +237,7 @@
                                     x:Name="menuCheckUpdateClashMetaCore"
                                     Height="{StaticResource MenuItemHeight}"
                                     Header="Clash.Meta Core" />
-                                <Separator Margin="-40,5" />
+                                <Separator Margin="-40,5" />-->
                                 <MenuItem
                                     x:Name="menuCheckUpdateSingBoxCore"
                                     Height="{StaticResource MenuItemHeight}"
@@ -372,6 +380,7 @@
                 <WrapPanel Margin="2" DockPanel.Dock="Top">
                     <ListBox
                         x:Name="lstGroup"
+                        MaxHeight="120"
                         FontSize="{DynamicResource StdFontSize}"
                         ItemContainerStyle="{StaticResource MyChipListBoxItem}"
                         Style="{StaticResource MaterialDesignChoiceChipPrimaryOutlineListBox}">
@@ -734,12 +743,17 @@
                     </DataGrid>
                     <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" />
                     <local:MsgView Grid.Row="2" />
+                    <materialDesign:Snackbar
+                        x:Name="MainSnackbar"
+                        Grid.Row="2"
+                        MessageQueue="{materialDesign:MessageQueue}" />
                 </Grid>
             </DockPanel>
             <tb:TaskbarIcon
                 x:Name="tbNotify"
                 IconSource="/v2rayN.ico"
-                NoLeftClickDelay="True">
+                NoLeftClickDelay="True"
+                ToolTipText="v2rayN">
                 <tb:TaskbarIcon.ContextMenu>
                     <ContextMenu Style="{StaticResource DefContextMenu}">
                         <MenuItem x:Name="menuSystemProxyClear" Height="{StaticResource MenuItemHeight}">
@@ -843,7 +857,6 @@
                     </ContextMenu>
                 </tb:TaskbarIcon.ContextMenu>
             </tb:TaskbarIcon>
-            <materialDesign:Snackbar x:Name="MainSnackbar" MessageQueue="{materialDesign:MessageQueue}" />
         </Grid>
     </materialDesign:DialogHost>
 </reactiveui:ReactiveWindow>
