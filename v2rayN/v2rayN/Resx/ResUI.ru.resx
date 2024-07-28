@@ -1027,4 +1027,7 @@
   <data name="TbSettingsSpeedTestUrl" xml:space="preserve">
     <value>URL спидтеста</value>
   </data>
+  <data name="TbSettingsUserPac" xml:space="preserve">
+    <value>User Pac settings</value>
+  </data>
 </root>
