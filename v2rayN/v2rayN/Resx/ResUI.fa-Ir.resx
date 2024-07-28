@@ -1033,4 +1033,7 @@
   <data name="menuProxiesSelectActivity" xml:space="preserve">
     <value>Select active node (Enter)</value>
   </data>
+  <data name="TbSettingsUserPac" xml:space="preserve">
+    <value>User Pac settings</value>
+  </data>
 </root>
