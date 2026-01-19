@@ -998,6 +998,26 @@
                                 Content="{x:Static resx:ResUI.TbBrowse}"
                                 Style="{StaticResource DefButton}" />
                         </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="{StaticResource Margin8}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource ToolbarTextBlock}"
+                                Text="{x:Static resx:ResUI.TbSettingsCustomPacProxyPort}" />
+                            <TextBox
+                                x:Name="txtCustomPacProxyPort"
+                                Width="120"
+                                Margin="{StaticResource Margin4}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource DefTextBox}" />
+                            <TextBlock
+                                Margin="{StaticResource Margin4}"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource ToolbarTextBlock}"
+                                Text="{x:Static resx:ResUI.TbSettingsCustomPacProxyPortTip}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
                     </StackPanel>
 
                     <TextBlock
@@ -1017,6 +1037,49 @@
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto" />
                 </DockPanel>
+            </TabItem>
+
+            <TabItem Header="{x:Static resx:ResUI.TbSettingsUserPac}">
+                <Grid Margin="{StaticResource Margin8}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <DockPanel Margin="{StaticResource Margin4}">
+                        <TextBlock
+                            Margin="{StaticResource Margin4}"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Top"
+                            Style="{StaticResource ToolbarTextBlock}"
+                            Text="{x:Static resx:ResUI.TbSettingsUserPacDirectDomains}" />
+                        <TextBox
+                            x:Name="txtUserPacDirectDomains"
+                            Margin="{StaticResource Margin4}"
+                            VerticalAlignment="Stretch"
+                            AcceptsReturn="True"
+                            BorderThickness="1"
+                            Style="{StaticResource DefTextBox}"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto" />
+                    </DockPanel>
+                    <DockPanel Grid.Column="1" Margin="{StaticResource Margin4}">
+                        <TextBlock
+                            Margin="{StaticResource Margin4}"
+                            VerticalAlignment="Center"
+                            DockPanel.Dock="Top"
+                            Style="{StaticResource ToolbarTextBlock}"
+                            Text="{x:Static resx:ResUI.TbSettingsUserPacProxyDomains}" />
+                        <TextBox
+                            x:Name="txtUserPacProxyDomains"
+                            Margin="{StaticResource Margin4}"
+                            VerticalAlignment="Stretch"
+                            AcceptsReturn="True"
+                            BorderThickness="1"
+                            Style="{StaticResource DefTextBox}"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto" />
+                    </DockPanel>
+                </Grid>
             </TabItem>
 
             <TabItem Header="{x:Static resx:ResUI.TbSettingsTunMode}">

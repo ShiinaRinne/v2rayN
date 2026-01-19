@@ -108,6 +108,49 @@ public class UpdateService(Config config, Func<bool, string, Task> updateFunc)
         await UpdateFunc(true, string.Format(ResUI.MsgDownloadGeoFileSuccessfully, "geo"));
     }
 
+    public async Task UpdatePacRule()
+    {
+        await UpdateFunc(false, ResUI.MsgStartUpdatingPacRules);
+
+        var url = Global.PacRulesUrl;
+        var tempFileName = Utils.GetTempPath(Utils.GetGuid() + ".txt");
+        Exception? lastError = null;
+
+        DownloadService downloadHandle = new();
+        downloadHandle.UpdateCompleted += (sender, args) =>
+        {
+            _ = UpdateFunc(false, args.Msg);
+        };
+        downloadHandle.Error += (sender, args) =>
+        {
+            lastError = args.GetException();
+            _ = UpdateFunc(false, lastError.Message);
+        };
+
+        await downloadHandle.DownloadFileAsync(url, tempFileName, true, _timeout);
+
+        if (lastError != null || !File.Exists(tempFileName))
+        {
+            await UpdateFunc(false, lastError?.Message ?? ResUI.OperationFailed);
+            return;
+        }
+
+        try
+        {
+            var targetPath = Utils.GetConfigPath("pac.txt");
+            File.Copy(tempFileName, targetPath, true);
+            File.Delete(tempFileName);
+
+            await PacManager.Instance.ReloadAsync();
+            await UpdateFunc(true, ResUI.MsgUpdatePacRulesSuccessfully);
+        }
+        catch (Exception ex)
+        {
+            Logging.SaveLog(_tag, ex);
+            await UpdateFunc(false, ex.Message);
+        }
+    }
+
     #region CheckUpdate private
 
     private async Task<UpdateResult> CheckUpdateAsync(DownloadService downloadHandle, ECoreType type, bool preRelease)

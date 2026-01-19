@@ -36,6 +36,7 @@ public class Global
     public const string ClashTunYaml = NamespaceSample + "clash_tun_yaml";
     public const string LinuxAutostartConfig = NamespaceSample + "linux_autostart_config";
     public const string PacFileName = NamespaceSample + "pac";
+    public const string PacRulesUrl = "https://github.com/ShiinaRinne/pac-rules/releases/latest/download/pac.txt";
     public const string ProxySetOSXShellFileName = NamespaceSample + "proxy_set_osx_sh";
     public const string ProxySetLinuxShellFileName = NamespaceSample + "proxy_set_linux_sh";
     public const string KillAsSudoOSXShellFileName = NamespaceSample + "kill_as_sudo_osx_sh";

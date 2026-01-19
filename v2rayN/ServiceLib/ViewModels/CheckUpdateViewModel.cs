@@ -3,6 +3,7 @@ namespace ServiceLib.ViewModels;
 public class CheckUpdateViewModel : MyReactiveObject
 {
     private const string _geo = "GeoFiles";
+    private const string _pac = "PacRules";
     private readonly string _v2rayN = ECoreType.v2rayN.ToString();
     private List<CheckUpdateModel> _lstUpdated = [];
     private static readonly string _tag = "CheckUpdateViewModel";
@@ -49,6 +50,7 @@ public class CheckUpdateViewModel : MyReactiveObject
             }
         }
         CheckUpdateModels.Add(GetCheckUpdateModel(_geo));
+        CheckUpdateModels.Add(GetCheckUpdateModel(_pac));
     }
 
     private CheckUpdateModel GetCheckUpdateModel(string coreType)
@@ -102,6 +104,10 @@ public class CheckUpdateViewModel : MyReactiveObject
             {
                 await CheckUpdateGeo();
             }
+            else if (item.CoreType == _pac)
+            {
+                await CheckUpdatePac();
+            }
             else if (item.CoreType == _v2rayN)
             {
                 if (Utils.IsPackagedInstall())
@@ -150,6 +156,20 @@ public class CheckUpdateViewModel : MyReactiveObject
         }
         await new UpdateService(_config, _updateUI).UpdateGeoFileAll()
             .ContinueWith(t => UpdatedPlusPlus(_geo, ""));
+    }
+
+    private async Task CheckUpdatePac()
+    {
+        async Task _updateUI(bool success, string msg)
+        {
+            await UpdateView(_pac, msg);
+            if (success)
+            {
+                UpdatedPlusPlus(_pac, "");
+            }
+        }
+        await new UpdateService(_config, _updateUI).UpdatePacRule()
+            .ContinueWith(t => UpdatedPlusPlus(_pac, ""));
     }
 
     private async Task CheckUpdateN(bool preRelease)

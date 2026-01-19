@@ -1632,8 +1632,29 @@ The "Get Certificate" action may fail if a self-signed certificate is used or if
   <data name="TbSettingsCustomSystemProxyPacPath" xml:space="preserve">
     <value>Custom PAC file path</value>
   </data>
+  <data name="TbSettingsCustomPacProxyPort" xml:space="preserve">
+    <value>PAC proxy port</value>
+  </data>
+  <data name="TbSettingsCustomPacProxyPortTip" xml:space="preserve">
+    <value>0 = use current local port</value>
+  </data>
   <data name="TbSettingsCustomSystemProxyScriptPath" xml:space="preserve">
     <value>Custom system proxy script file path</value>
+  </data>
+  <data name="TbSettingsUserPac" xml:space="preserve">
+    <value>User PAC</value>
+  </data>
+  <data name="TbSettingsUserPacDirectDomains" xml:space="preserve">
+    <value>Direct domains (one per line)</value>
+  </data>
+  <data name="TbSettingsUserPacProxyDomains" xml:space="preserve">
+    <value>Proxy domains (one per line)</value>
+  </data>
+  <data name="MsgStartUpdatingPacRules" xml:space="preserve">
+    <value>Start updating PAC rules...</value>
+  </data>
+  <data name="MsgUpdatePacRulesSuccessfully" xml:space="preserve">
+    <value>Update PAC rules successfully.</value>
   </data>
   <data name="TbSettingsMacOSShowInDock" xml:space="preserve">
     <value>macOS displays this in the Dock (requires restart)</value>

@@ -758,6 +758,25 @@
                                 Margin="{StaticResource Margin4}"
                                 Content="{x:Static resx:ResUI.TbBrowse}" />
                         </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="{StaticResource Margin4}"
+                                VerticalAlignment="Center"
+                                Text="{x:Static resx:ResUI.TbSettingsCustomPacProxyPort}" />
+                            <TextBox
+                                x:Name="txtCustomPacProxyPort"
+                                Width="120"
+                                Margin="{StaticResource Margin4}"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                TextWrapping="NoWrap" />
+                            <TextBlock
+                                Margin="{StaticResource Margin4}"
+                                VerticalAlignment="Center"
+                                Text="{x:Static resx:ResUI.TbSettingsCustomPacProxyPortTip}"
+                                TextWrapping="WrapWithOverflow" />
+                        </StackPanel>
                     </StackPanel>
 
                     <TextBlock
@@ -780,6 +799,42 @@
                         Classes="TextArea"
                         TextWrapping="Wrap" />
                 </DockPanel>
+            </TabItem>
+
+            <TabItem Header="{x:Static resx:ResUI.TbSettingsUserPac}">
+                <Grid Margin="{StaticResource Margin4}" ColumnDefinitions="1*,1*" RowDefinitions="Auto,*">
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbSettingsUserPacDirectDomains}" />
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Center"
+                        Text="{x:Static resx:ResUI.TbSettingsUserPacProxyDomains}" />
+
+                    <TextBox
+                        x:Name="txtUserPacDirectDomains"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Stretch"
+                        BorderThickness="1"
+                        Classes="TextArea"
+                        TextWrapping="Wrap" />
+                    <TextBox
+                        x:Name="txtUserPacProxyDomains"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="{StaticResource Margin4}"
+                        VerticalAlignment="Stretch"
+                        BorderThickness="1"
+                        Classes="TextArea"
+                        TextWrapping="Wrap" />
+                </Grid>
             </TabItem>
 
             <TabItem Header="{x:Static resx:ResUI.TbSettingsTunMode}">

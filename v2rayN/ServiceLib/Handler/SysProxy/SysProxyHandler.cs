@@ -90,8 +90,13 @@ public static class SysProxyHandler
 
     private static async Task SetWindowsProxyPac(int port)
     {
+        var proxyPort = port;
+        if (AppManager.Instance.Config.SystemProxyItem.CustomPacProxyPort > 0)
+        {
+            proxyPort = AppManager.Instance.Config.SystemProxyItem.CustomPacProxyPort;
+        }
         var portPac = AppManager.Instance.GetLocalPort(EInboundProtocol.pac);
-        await PacManager.Instance.StartAsync(port, portPac);
+        await PacManager.Instance.StartAsync(proxyPort, portPac);
         var strProxy = $"{Global.HttpProtocol}{Global.Loopback}:{portPac}/pac?t={DateTime.Now.Ticks}";
         ProxySettingWindows.SetProxy(strProxy, "", 4);
     }

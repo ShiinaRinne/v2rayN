@@ -84,10 +84,18 @@ public class OptionSettingViewModel : MyReactiveObject
     [Reactive] public bool notProxyLocalAddress { get; set; }
     [Reactive] public string systemProxyAdvancedProtocol { get; set; }
     [Reactive] public string systemProxyExceptions { get; set; }
+    [Reactive] public int customPacProxyPort { get; set; }
     [Reactive] public string CustomSystemProxyPacPath { get; set; }
     [Reactive] public string CustomSystemProxyScriptPath { get; set; }
 
     #endregion System proxy
+
+    #region User pac
+
+    [Reactive] public string userPacDirectDomains { get; set; }
+    [Reactive] public string userPacProxyDomains { get; set; }
+
+    #endregion User pac
 
     #region Tun mode
 
@@ -209,10 +217,19 @@ public class OptionSettingViewModel : MyReactiveObject
         notProxyLocalAddress = _config.SystemProxyItem.NotProxyLocalAddress;
         systemProxyAdvancedProtocol = _config.SystemProxyItem.SystemProxyAdvancedProtocol;
         systemProxyExceptions = _config.SystemProxyItem.SystemProxyExceptions;
+        customPacProxyPort = _config.SystemProxyItem.CustomPacProxyPort;
         CustomSystemProxyPacPath = _config.SystemProxyItem.CustomSystemProxyPacPath;
         CustomSystemProxyScriptPath = _config.SystemProxyItem.CustomSystemProxyScriptPath;
 
         #endregion System proxy
+
+        #region User pac
+
+        var userPac = PacUserRuleManager.Load(Utils.GetConfigPath());
+        userPacDirectDomains = userPac is null ? string.Empty : string.Join(Environment.NewLine, userPac.DirectDomains);
+        userPacProxyDomains = userPac is null ? string.Empty : string.Join(Environment.NewLine, userPac.ProxyDomains);
+
+        #endregion User pac
 
         #region Tun mode
 
@@ -372,6 +389,7 @@ public class OptionSettingViewModel : MyReactiveObject
         _config.SystemProxyItem.SystemProxyExceptions = systemProxyExceptions;
         _config.SystemProxyItem.NotProxyLocalAddress = notProxyLocalAddress;
         _config.SystemProxyItem.SystemProxyAdvancedProtocol = systemProxyAdvancedProtocol;
+        _config.SystemProxyItem.CustomPacProxyPort = customPacProxyPort;
         _config.SystemProxyItem.CustomSystemProxyPacPath = CustomSystemProxyPacPath;
         _config.SystemProxyItem.CustomSystemProxyScriptPath = CustomSystemProxyScriptPath;
 
@@ -388,6 +406,9 @@ public class OptionSettingViewModel : MyReactiveObject
 
         if (await ConfigHandler.SaveConfig(_config) == 0)
         {
+            PacUserRuleManager.Save(userPacDirectDomains, userPacProxyDomains, Utils.GetConfigPath());
+            await PacManager.Instance.ReloadAsync();
+
             await AutoStartupHandler.UpdateTask(_config);
             AppManager.Instance.Reset();
 

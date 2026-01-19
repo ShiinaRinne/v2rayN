@@ -2032,6 +2032,24 @@ namespace ServiceLib.Resx {
         }
         
         /// <summary>
+        ///   ???? Start updating PAC rules... ????????
+        /// </summary>
+        public static string MsgStartUpdatingPacRules {
+            get {
+                return ResourceManager.GetString("MsgStartUpdatingPacRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ???? Update PAC rules successfully. ????????
+        /// </summary>
+        public static string MsgUpdatePacRulesSuccessfully {
+            get {
+                return ResourceManager.GetString("MsgUpdatePacRulesSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Invalid subscription content 的本地化字符串。
         /// </summary>
         public static string MsgSubscriptionDecodingFailed {
@@ -3574,11 +3592,56 @@ namespace ServiceLib.Resx {
         }
         
         /// <summary>
+        ///   ???? PAC proxy port ????????
+        /// </summary>
+        public static string TbSettingsCustomPacProxyPort {
+            get {
+                return ResourceManager.GetString("TbSettingsCustomPacProxyPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ???? 0 = use current local port ????????
+        /// </summary>
+        public static string TbSettingsCustomPacProxyPortTip {
+            get {
+                return ResourceManager.GetString("TbSettingsCustomPacProxyPortTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Custom system proxy script file path 的本地化字符串。
         /// </summary>
         public static string TbSettingsCustomSystemProxyScriptPath {
             get {
                 return ResourceManager.GetString("TbSettingsCustomSystemProxyScriptPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ???? User PAC ????????
+        /// </summary>
+        public static string TbSettingsUserPac {
+            get {
+                return ResourceManager.GetString("TbSettingsUserPac", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ???? Direct domains (one per line) ????????
+        /// </summary>
+        public static string TbSettingsUserPacDirectDomains {
+            get {
+                return ResourceManager.GetString("TbSettingsUserPacDirectDomains", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ???? Proxy domains (one per line) ????????
+        /// </summary>
+        public static string TbSettingsUserPacProxyDomains {
+            get {
+                return ResourceManager.GetString("TbSettingsUserPacProxyDomains", resourceCulture);
             }
         }
         

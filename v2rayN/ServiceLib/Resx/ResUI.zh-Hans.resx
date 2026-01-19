@@ -1629,8 +1629,29 @@
   <data name="TbSettingsCustomSystemProxyPacPath" xml:space="preserve">
     <value>自定义 PAC 文件路径</value>
   </data>
+  <data name="TbSettingsCustomPacProxyPort" xml:space="preserve">
+    <value>PAC 代理端口</value>
+  </data>
+  <data name="TbSettingsCustomPacProxyPortTip" xml:space="preserve">
+    <value>0 = 使用当前本地监听端口</value>
+  </data>
   <data name="TbSettingsCustomSystemProxyScriptPath" xml:space="preserve">
     <value>自定义系统代理脚本文件路径</value>
+  </data>
+  <data name="TbSettingsUserPac" xml:space="preserve">
+    <value>用户 PAC</value>
+  </data>
+  <data name="TbSettingsUserPacDirectDomains" xml:space="preserve">
+    <value>直连域名（每行一个）</value>
+  </data>
+  <data name="TbSettingsUserPacProxyDomains" xml:space="preserve">
+    <value>代理域名（每行一个）</value>
+  </data>
+  <data name="MsgStartUpdatingPacRules" xml:space="preserve">
+    <value>开始更新 PAC 规则…</value>
+  </data>
+  <data name="MsgUpdatePacRulesSuccessfully" xml:space="preserve">
+    <value>PAC 规则更新成功。</value>
   </data>
   <data name="TbSettingsMacOSShowInDock" xml:space="preserve">
     <value>macOS 在 Dock 栏中显示 (需重启)</value>
